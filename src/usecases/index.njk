@@ -1,0 +1,45 @@
+---
+layout: base.njk
+title: Use Cases
+description: Real-world examples of product leadership driving measurable outcomes.
+---
+
+<section class="usecases-page">
+  <div class="container">
+    {% for uc in usecases %}
+    <article class="usecase">
+      <header class="usecase-header">
+        <h1>{{ uc.title }}</h1>
+        <p class="usecase-subtitle">{{ uc.subtitle }}</p>
+      </header>
+
+      <div class="usecase-body ps-grid">
+        <div class="ps-card ps-problem">
+          <h2>Challenge</h2>
+          {% for item in uc.challenge %}
+          <p>{{ item }}</p>
+          {% endfor %}
+        </div>
+        <div class="ps-card ps-solution">
+          <h2>Approach</h2>
+          {% for item in uc.approach %}
+          <p>{{ item }}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="usecase-result">
+        <h2>Result</h2>
+        <p>{{ uc.result }}</p>
+      </div>
+
+      <div class="section-cta">
+        <a href="#contact" class="btn">Get in Touch &rarr;</a>
+      </div>
+    </article>
+    {% if not loop.last %}
+    <hr class="usecase-divider">
+    {% endif %}
+    {% endfor %}
+  </div>
+</section>

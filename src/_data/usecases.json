@@ -1,0 +1,89 @@
+[
+  {
+    "title": "Feature Roadmap to Board Level Strategy",
+    "subtitle": "Mid-market B2B SaaS cybersecurity provider based in Europe",
+    "challenge": [
+      "A detailed 12-month roadmap existed, but it was operational and feature-heavy rather than driven by strategic outcomes.",
+      "Initiatives were not clearly linked to business metrics, making impact and prioritisation difficult to assess.",
+      "Alignment across leadership teams was inconsistent, creating friction between product, commercial, and technical decision-making.",
+      "Differentiation in a crowded market was difficult to articulate clearly and consistently.",
+      "Strategic risks were not formally defined, and there was no clear mitigation plan in place.",
+      "There was no structured methodology for continuous validation, increasing reliance on assumptions rather than evidence.",
+      "The product organisation was deeply embedded in delivery, making it difficult to step back and think strategically."
+    ],
+    "approach": [
+      "Ran a series of leadership workshops focused on strategic alignment, shifting thinking from operational execution to outcome-led strategy.",
+      "Created space for strategic thinking by pulling the team out of day-to-day delivery pressures and enabling focused leadership reflection.",
+      "Grounded discussions in market reality through a structured SWOT analysis, ensuring strategic decisions were evidence-based rather than opinion-led.",
+      "Used the Airbnb 11-star exercise to push the team beyond incremental improvements and reimagine the highest-value customer experience.",
+      "Identified the company's true competitive advantage: delivering depth and measurable outcomes in areas where larger platforms offered only breadth.",
+      "Translated workshop outputs into a clear, prioritised strategy focused on the outcomes most valued by target customers.",
+      "Developed a board-ready narrative that linked differentiation to business metrics, enabling confident executive and board-level decision-making."
+    ],
+    "result": "The board approved and backed the strategy, supported by a clear, outcome-focused narrative grounded in evidence-based decision-making. A board-ready strategy deck articulated a reimagined vision and defined four strategic bets designed to drive growth, enabling leadership to align around shared priorities and make confident product decisions. The roadmap evolved from a list of initiatives into a strategic plan tied to measurable business impact, giving the organisation a clear path to differentiation and stronger positioning against larger platform competitors."
+  },
+  {
+    "title": "Intranet to Employee Experience Platform",
+    "subtitle": "A mid-market SME intranet provider",
+    "challenge": [
+      "Extensive research, including customer interviews and strategic work with EY, had been completed, but it lacked a clear strategic direction.",
+      "The organisation was drowning in research, with a low signal-to-noise ratio that made prioritisation difficult.",
+      "Leadership lacked a structured way to turn insight into clear strategic choices and measurable outcomes.",
+      "There was no evidence-based plan for evolving the ICP — from traditional intranet buyers toward employee experience, and from a strong regional position into North American expansion.",
+      "Existing buyer personas reinforced legacy positioning while the market shifted toward daily engagement and employee value.",
+      "Strong inputs existed, but no clear strategy connected research to focused execution."
+    ],
+    "approach": [
+      "Ran a series of workshops focused on the future of work, clarifying how shifting employee expectations would reshape the employee experience market.",
+      "Reframed strategy away from legacy buyer needs and toward driving day-to-day engagement and value for end users.",
+      "Increased signal-to-noise by distilling large volumes of research into a small set of clear strategic priorities.",
+      "Anchored decisions in commercial evidence through win/loss analysis across 3,000+ opportunities, including MEDDPICC data.",
+      "Defined four clear strategic bets designed to reposition the business from intranet provider to employee experience platform.",
+      "Established a validation path to gather further evidence, reduce uncertainty, and de-risk strategic investment over time.",
+      "Built an evidence-based roadmap showing how the ICP could evolve, supporting both upmarket positioning and expansion into North America."
+    ],
+    "result": "The board approved and backed the strategy, supported by a clear, outcome-focused narrative grounded in evidence-based decision-making. A board-ready strategy deck articulated a reimagined vision and defined four strategic bets designed to drive growth, enabling leadership to align around shared priorities and make confident product decisions. The roadmap evolved from a list of initiatives into a strategic plan tied to measurable business impact, giving the organisation a clear path to differentiation and stronger positioning against larger platform competitors."
+  },
+  {
+    "title": "Conversational AI to Improve User Engagement",
+    "subtitle": "A leading Web3 recruitment platform in the job board space",
+    "challenge": [
+      "The company had a number of popular, well-established Web3 assets in the job board space and wanted to explore new ways to increase engagement.",
+      "Leadership needed to validate whether a conversational voice interface could improve interaction between users and opportunities.",
+      "The core hypothesis was that natural voice-based conversation would increase engagement, leading to stronger matching quality and higher response rates.",
+      "If successful, the approach had the potential to reduce reliance on traditional recruitment intermediaries by enabling more direct, conversational interaction between users and the platform.",
+      "The challenge was validating this hypothesis quickly without disrupting existing product momentum or committing significant upfront resources."
+    ],
+    "approach": [
+      "Built a value chain map to understand how the platform created value across its existing offering and where engagement gaps existed.",
+      "Used service design principles to identify where conversational AI could naturally fit within the user journey without disrupting the core experience.",
+      "Defined and tested the core hypothesis that natural voice interaction would increase engagement and improve response rates.",
+      "Built a conversational voice AI MVP focused specifically on validating user interaction patterns and engagement behaviour.",
+      "Tested the MVP with real users, capturing feedback and iterating quickly to refine the experience.",
+      "Used continuous feedback loops to validate whether voice-driven engagement created measurable improvement before wider investment."
+    ],
+    "result": "The company gained clear strategic direction for its evolution from intranet provider to employee experience platform, supported by an evidence-backed, prioritised roadmap grounded in existing research. Leadership now had a documented path to reposition the offering, move beyond legacy buyer personas, and focus on delivering outcomes that mattered to end users rather than only IT stakeholders. This clarity enabled confident decision-making, allowing the team to make deliberate trade-offs and concentrate investment on the areas most likely to create meaningful differentiation in an evolving market."
+  },
+  {
+    "title": "Building an Operating Model for AI Transformation",
+    "subtitle": "High growth B2B Startup",
+    "challenge": [
+      "An AI strategy had been announced, but the product operating model remained built for predictable software rather than probabilistic systems.",
+      "AI initiatives were not tied to key business metrics, leaving no clear way to measure ROI or prioritise investment.",
+      "Roadmaps remained feature-led, with success measured by delivery rather than commercial impact.",
+      "There was no structured approach to continuous evaluation, performance monitoring, or model tuning after deployment.",
+      "Ownership across product, engineering, and data was unclear, creating fragmented experimentation and duplicated effort.",
+      "Governance and risk processes were reactive, slowing progress as AI capabilities moved toward production."
+    ],
+    "approach": [
+      "Conducted a focused operating model review centred on commercial accountability for AI investment.",
+      "Defined clear value hypotheses for each AI initiative, explicitly linked to revenue, margin, cost efficiency, or retention metrics.",
+      "Reframed roadmaps from feature delivery to outcome-based bets with measurable success criteria.",
+      "Introduced ROI tracking frameworks connecting model performance to business impact.",
+      "Established continuous evaluation loops, including live performance monitoring, human override tracking, and structured model tuning cycles.",
+      "Clarified ownership across product, engineering, and data with defined decision rights and accountability.",
+      "Integrated governance and risk guardrails into experimentation and deployment workflows."
+    ],
+    "result": "AI investment shifted from activity without accountability to initiatives directly tied to core business metrics, including revenue growth, margin improvement, cost efficiency, and retention. Clear value hypotheses replaced vague experimentation, and each AI initiative was measured against defined commercial outcomes. Continuous evaluation and tuning processes ensured model performance improved over time rather than degrading after launch. Governance moved from reactive gatekeeping to structured oversight embedded within delivery. As a result, AI transformation became a disciplined, ROI-driven product strategy embedded into the operating model — not an isolated innovation programme or side initiative disconnected from commercial impact."
+  }
+]

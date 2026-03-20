@@ -1,0 +1,100 @@
+---
+layout: base.njk
+title: Product Leadership for Investors & Operators
+---
+
+{# ── Hero ── #}
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <span class="hero-tag">Fractional &amp; Interim AI-Native Product Leadership</span>
+      <h1>Product Leadership for Investors &amp; Operators</h1>
+    </div>
+    <div class="hero-description">
+      <p>I work with PE-backed SaaS companies where AI is redefining value creation — redesigning product strategy and operating models to turn AI ambition into measurable growth, efficiency, and valuation impact.</p>
+      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+    </div>
+  </div>
+</section>
+
+{# ── Hero image ── #}
+<section class="hero-image">
+  <img src="/assets/images/hero-tree.jpg" alt="AI-powered growth" loading="lazy">
+</section>
+
+{# ── Audience cards ── #}
+<section class="audience">
+  <div class="container audience-grid">
+    <div class="audience-card">
+      <img src="/assets/images/icon-investors.png" alt="" width="70" height="70">
+      <p><strong>For Investors</strong>, I provide independent product and AI leadership that creates signal, conviction, and value creation across portfolio companies – without increasing day-to-day involvement.</p>
+    </div>
+    <div class="audience-card">
+      <img src="/assets/images/icon-operators.png" alt="" width="70" height="70">
+      <p><strong>For Operators</strong>, I translate AI ambition into executable product strategy, align teams around outcome-led priorities, and drive measurable commercial results.</p>
+    </div>
+  </div>
+</section>
+
+{# ── Problem / Solution ── #}
+<section class="problem-solution">
+  <div class="container ps-grid">
+    <div class="ps-card ps-problem">
+      <h2>Problem</h2>
+      <p>Investors and portfolio companies reach product inflection points where AI, market dynamics, and competitive change reshape how value is created, but product strategy and operating models remain anchored in a previous phase of growth. Business-as-usual delivery reinforces existing priorities, even as strategy loses alignment with where future value sits.</p>
+      <p>Operating models that once enabled scale no longer accelerate value creation. Decision-making slows, execution focuses on output over outcomes, and capital remains tied to legacy assumptions — precisely when strategic clarity and operating model change are needed to unlock the next phase of growth.</p>
+    </div>
+    <div class="ps-card ps-solution">
+      <h2>Solution</h2>
+      <p>Independent product and AI leadership that helps investors and operators realign product strategy and evolve operating models at moments of inflection where AI and market change redefine how value is created. Working alongside leadership teams, strategic assumptions are challenged, priorities are reset, and execution is redirected toward initiatives that create measurable commercial impact rather than sustaining legacy ways of working.</p>
+      <p>Product strategy, decision-making, and operating models are reshaped to accelerate learning, focus investment, and improve organisational speed. Teams align around a small set of outcome-led priorities, enabling faster decisions, clearer accountability, and execution directly connected to growth, efficiency, and long-term value creation.</p>
+    </div>
+  </div>
+</section>
+
+{# ── Why Fractional? ── #}
+<section class="why-section why-fractional">
+  <div class="container why-inner">
+    <div class="why-content">
+      <h2>Why Fractional?</h2>
+      <p>Fractional product or AI leadership complements, rather than replaces, a sitting CPO or CPTO. While permanent leaders focus on running the organisation, delivery, and team performance, fractional leadership is brought in to solve specific strategic or transformational challenges that sit outside day-to-day execution.</p>
+      <p>It provides independent perspective to CEOs and investors, accelerates discovery and experimentation, and injects specialised expertise — such as agentic AI, automation, or operating model change – without increasing permanent executive overhead. The result is faster progress on high-impact initiatives while core leadership maintains operational momentum.</p>
+    </div>
+  </div>
+</section>
+
+{# ── Why Me? ── #}
+<section id="about-me" class="why-section why-me dark-bg">
+  <div class="container why-inner why-me-inner">
+    <div class="why-content">
+      <h2>Why Me?</h2>
+      <p>AI-native Product Leader and exited founder with a proven record of growth across B2B SaaS from 0-1 and scaling 1-N. Experienced across Agentic AI, enterprise product strategy, and value creation for high-growth PE and venture-backed environments. I've led multiple AI platform shifts and built and commercialised AI products to deliver measurable gains in revenue, retention, and product velocity.</p>
+      <p>I turn ambiguity into strategy, define market-winning roadmaps, and drive execution across product, engineering and GTM. Proven ability to improve unit economics with efficiency-led automation, product-led growth motions, and drive valuation uplift through scalable AI-first workflows.</p>
+      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+    </div>
+    <div class="why-image">
+      <img src="/assets/images/headshot.jpg" alt="Matthew Dewstowe" loading="lazy">
+    </div>
+  </div>
+</section>
+
+{# ── Services ── #}
+<section id="services" class="services-section">
+  <div class="container">
+    <h2 class="section-title">My Services</h2>
+    <p class="section-subtitle">I partner with teams to turn strategy into scalable products and results. Hands-on leadership, proven frameworks, and a focus on growth.</p>
+    <div class="services-grid">
+      {% for service in services %}
+      <div class="service-card">
+        <h3>{{ service.title }}</h3>
+        {% for line in service.description %}
+        <p>{{ line }}</p>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="section-cta">
+      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+    </div>
+  </div>
+</section>
