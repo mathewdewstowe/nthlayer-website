@@ -17,12 +17,11 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Hero image ── #}
-<section class="hero-image">
-  <img src="/assets/images/hero-tree.jpg" alt="AI-powered growth" loading="lazy">
+{# ── Hero image (background) ── #}
+<section class="hero-image-bg">
 </section>
 
-{# ── Audience cards ── #}
+{# ── Audience cards (overlapping hero) ── #}
 <section class="audience">
   <div class="container audience-grid">
     <div class="audience-card">
@@ -52,11 +51,13 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Why Fractional? ── #}
+{# ── Why Fractional? (2-column with background image) ── #}
 <section class="why-section why-fractional">
-  <div class="container why-inner">
-    <div class="why-content">
+  <div class="container why-fractional-grid">
+    <div class="why-fractional-heading">
       <h2>Why Fractional?</h2>
+    </div>
+    <div class="why-fractional-text">
       <p>Fractional product or AI leadership complements, rather than replaces, a sitting CPO or CPTO. While permanent leaders focus on running the organisation, delivery, and team performance, fractional leadership is brought in to solve specific strategic or transformational challenges that sit outside day-to-day execution.</p>
       <p>It provides independent perspective to CEOs and investors, accelerates discovery and experimentation, and injects specialised expertise — such as agentic AI, automation, or operating model change – without increasing permanent executive overhead. The result is faster progress on high-impact initiatives while core leadership maintains operational momentum.</p>
     </div>
@@ -78,20 +79,34 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Services ── #}
+{# ── Partner Logos ── #}
+<section class="partners">
+  <div class="container partners-inner">
+    <img src="/assets/images/partner-marlin.png" alt="Marlin Equity Partners" loading="lazy">
+    <img src="/assets/images/partner-stratum.png" alt="Stratum Capital" loading="lazy">
+    <img src="/assets/images/partner-banc.png" alt="Banc" loading="lazy">
+  </div>
+</section>
+
+{# ── Services (radial layout) ── #}
 <section id="services" class="services-section">
   <div class="container">
     <h2 class="section-title">My Services</h2>
     <p class="section-subtitle">I partner with teams to turn strategy into scalable products and results. Hands-on leadership, proven frameworks, and a focus on growth.</p>
-    <div class="services-grid">
-      {% for service in services %}
-      <div class="service-card">
-        <h3>{{ service.title }}</h3>
-        {% for line in service.description %}
-        <p>{{ line }}</p>
+    <div class="services-radial">
+      <div class="services-ring">
+        {% for service in services %}
+        <div class="service-node service-node-{{ loop.index }}">
+          <span class="service-label">{{ service.title }}</span>
+          <button class="service-expand" aria-label="Expand {{ service.title }}">+</button>
+          <div class="service-detail">
+            {% for line in service.description %}
+            <p>{{ line }}</p>
+            {% endfor %}
+          </div>
+        </div>
         {% endfor %}
       </div>
-      {% endfor %}
     </div>
     <div class="section-cta">
       <a href="#contact" class="btn">Get in Touch &rarr;</a>
