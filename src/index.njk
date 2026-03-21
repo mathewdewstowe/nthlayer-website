@@ -130,7 +130,7 @@ title: Product Leadership for Investors & Operators
   <div class="modal">
     <button class="modal-close" aria-label="Close">&times;</button>
     <h2>Get in Touch</h2>
-    <form action="https://formspree.io/f/xcontact" method="POST" class="contact-form" id="contactForm">
+    <form class="contact-form" id="contactForm">
       <div class="form-row">
         <input type="text" name="name" placeholder="Name *" required>
         <input type="text" name="jobtitle" placeholder="Job Title *" required>
@@ -144,6 +144,7 @@ title: Product Leadership for Investors & Operators
       </div>
       <textarea name="message" placeholder="Message *" rows="5" required></textarea>
       <button type="submit" class="btn">Submit &rarr;</button>
+      <p class="form-success" style="display:none;color:#fff;text-align:center;margin-top:1rem;font-size:1.1rem;">Thank you, we will be in touch.</p>
     </form>
   </div>
 </div>
@@ -185,15 +186,27 @@ title: Product Leadership for Investors & Operators
 document.addEventListener('DOMContentLoaded',function(){
   var modal=document.getElementById('contactModal');
   if(!modal) return;
-  // Email validation on contact form
+  // Contact form: submit via fetch, show thank you message
   var cForm=document.getElementById('contactForm');
   if(cForm) cForm.addEventListener('submit',function(e){
+    e.preventDefault();
     var email=cForm.querySelector('input[name="email"]');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){
-      e.preventDefault();
       email.setCustomValidity('Please enter a valid email address');
       email.reportValidity();
-    } else { email.setCustomValidity(''); }
+      return;
+    }
+    email.setCustomValidity('');
+    var data=new FormData(cForm);
+    fetch('https://formspree.io/f/xcontact',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+      .then(function(){
+        cForm.querySelectorAll('input,textarea,button').forEach(function(el){el.style.display='none';});
+        cForm.querySelector('.form-success').style.display='block';
+      })
+      .catch(function(){
+        cForm.querySelectorAll('input,textarea,button').forEach(function(el){el.style.display='none';});
+        cForm.querySelector('.form-success').style.display='block';
+      });
   });
   document.querySelectorAll('.open-modal').forEach(function(btn){
     btn.addEventListener('click',function(e){

@@ -20,15 +20,16 @@ description: Insights and thought leadership from The Nth Layer.
         <button class="btn wp-toggle" data-target="wp1">Download PDF &darr;</button>
       </div>
       <div class="wp-form-wrap">
-        <form action="https://formspree.io/f/xcontact" method="POST" class="wp-form">
+        <form class="wp-form" id="wpForm1">
           <input type="hidden" name="_subject" value="Whitepaper Download: AI-Native Product Leadership">
           <label class="wp-label"><span>Name <span class="required">*</span></span><input type="text" name="name" placeholder="Name" required></label>
           <label class="wp-label"><span>Job Title <span class="required">*</span></span><input type="text" name="jobtitle" placeholder="Job Title" required></label>
           <label class="wp-label"><span>Company <span class="required">*</span></span><input type="text" name="company" placeholder="Company" required></label>
           <label class="wp-label"><span>Email <span class="required">*</span></span><input type="email" name="email" placeholder="Email" required></label>
           <div class="wp-form-footer">
-            <a href="/assets/downloads/ai-native-product-leadership.pdf" class="btn" download onclick="this.closest('form').submit()">Free Download &darr;</a>
+            <button type="submit" class="btn">Free Download &darr;</button>
           </div>
+          <p class="form-success" style="display:none;color:var(--navy);text-align:center;margin-top:1rem;font-size:1.1rem;grid-column:1/-1;">Thank you, we will be in touch.</p>
         </form>
       </div>
     </div>
@@ -44,18 +45,26 @@ document.querySelectorAll('.wp-toggle').forEach(function(btn){
     this.style.display = card.classList.contains('expanded') ? 'none' : '';
   });
 });
-// Email validation
-document.querySelectorAll('.wp-form').forEach(function(form){
-  form.addEventListener('submit', function(e){
-    var email = form.querySelector('input[name="email"]');
-    var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-    if (!re.test(email.value)) {
-      e.preventDefault();
-      email.setCustomValidity('Please enter a valid email address');
-      email.reportValidity();
-    } else {
-      email.setCustomValidity('');
-    }
-  });
+// Whitepaper form: submit via fetch, show thank you
+var wpForm=document.getElementById('wpForm1');
+if(wpForm) wpForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  var email=wpForm.querySelector('input[name="email"]');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){
+    email.setCustomValidity('Please enter a valid email address');
+    email.reportValidity();
+    return;
+  }
+  email.setCustomValidity('');
+  var data=new FormData(wpForm);
+  fetch('https://formspree.io/f/xcontact',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(function(){
+      wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
+      wpForm.querySelector('.form-success').style.display='block';
+    })
+    .catch(function(){
+      wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
+      wpForm.querySelector('.form-success').style.display='block';
+    });
 });
 </script>
