@@ -22,10 +22,10 @@ description: Insights and thought leadership from The Nth Layer.
       <div class="wp-form-wrap">
         <form action="https://formspree.io/f/xcontact" method="POST" class="wp-form">
           <input type="hidden" name="_subject" value="Whitepaper Download: AI-Native Product Leadership">
-          <input type="text" name="name" placeholder="Name" required>
-          <input type="text" name="jobtitle" placeholder="Job Title">
-          <input type="text" name="company" placeholder="Company">
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="name" placeholder="Name *" required>
+          <input type="text" name="jobtitle" placeholder="Job Title *" required>
+          <input type="text" name="company" placeholder="Company *" required>
+          <input type="email" name="email" placeholder="Email *" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
           <div class="wp-form-footer">
             <a href="/assets/downloads/ai-native-product-leadership.pdf" class="btn" download onclick="this.closest('form').submit()">Free Download &darr;</a>
           </div>
