@@ -130,19 +130,19 @@ title: Product Leadership for Investors & Operators
   <div class="modal">
     <button class="modal-close" aria-label="Close">&times;</button>
     <h2>Get in Touch</h2>
-    <form action="https://formspree.io/f/xcontact" method="POST" class="contact-form">
+    <form action="https://formspree.io/f/xcontact" method="POST" class="contact-form" id="contactForm">
       <div class="form-row">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="text" name="jobtitle" placeholder="Job Title">
+        <input type="text" name="name" placeholder="Name *" required>
+        <input type="text" name="jobtitle" placeholder="Job Title *" required>
       </div>
       <div class="form-row">
-        <input type="text" name="company" placeholder="Company">
-        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="company" placeholder="Company *" required>
+        <input type="email" name="email" placeholder="Email *" required>
       </div>
       <div class="form-row">
-        <input type="tel" name="telephone" placeholder="Telephone">
+        <input type="tel" name="telephone" placeholder="Telephone *" required>
       </div>
-      <textarea name="message" placeholder="Message" rows="5"></textarea>
+      <textarea name="message" placeholder="Message *" rows="5" required></textarea>
       <button type="submit" class="btn">Submit &rarr;</button>
     </form>
   </div>
@@ -185,6 +185,16 @@ title: Product Leadership for Investors & Operators
 document.addEventListener('DOMContentLoaded',function(){
   var modal=document.getElementById('contactModal');
   if(!modal) return;
+  // Email validation on contact form
+  var cForm=document.getElementById('contactForm');
+  if(cForm) cForm.addEventListener('submit',function(e){
+    var email=cForm.querySelector('input[name="email"]');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){
+      e.preventDefault();
+      email.setCustomValidity('Please enter a valid email address');
+      email.reportValidity();
+    } else { email.setCustomValidity(''); }
+  });
   document.querySelectorAll('.open-modal').forEach(function(btn){
     btn.addEventListener('click',function(e){
       e.preventDefault();
