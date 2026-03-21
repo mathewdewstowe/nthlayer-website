@@ -11,15 +11,37 @@ description: Insights and thought leadership from The Nth Layer.
       <p>Insights and thought leadership on AI-native product strategy, operating model transformation, and value creation for PE-backed SaaS.</p>
     </header>
 
-    <div class="whitepaper-card">
+    <div class="whitepaper-card" id="wp1">
       <div class="whitepaper-content">
         <h2>AI-Native Product Leadership: Turning AI Ambition into Measurable Value</h2>
         <p>Most PE-backed SaaS companies have announced an AI strategy — but few have reshaped their product operating model to deliver on it. This whitepaper explores how fractional product leadership helps investors and operators move beyond feature-level AI integration to build AI-native strategies that drive measurable growth, efficiency, and valuation impact. It covers the key inflection points where operating models break down, how to realign product strategy around outcome-led priorities, and what it takes to turn AI ambition into a disciplined, ROI-driven product capability.</p>
       </div>
       <div class="whitepaper-action">
-        <a href="/assets/downloads/ai-native-product-leadership.pdf" class="btn" download>Download PDF &darr;</a>
+        <button class="btn wp-toggle" data-target="wp1">Download PDF &darr;</button>
+      </div>
+      <div class="wp-form-wrap">
+        <form action="https://formspree.io/f/xcontact" method="POST" class="wp-form">
+          <input type="hidden" name="_subject" value="Whitepaper Download: AI-Native Product Leadership">
+          <input type="text" name="name" placeholder="Name" required>
+          <input type="text" name="jobtitle" placeholder="Job Title">
+          <input type="text" name="company" placeholder="Company">
+          <input type="email" name="email" placeholder="Email" required>
+          <div class="wp-form-footer">
+            <a href="/assets/downloads/ai-native-product-leadership.pdf" class="btn" download onclick="this.closest('form').submit()">Free Download &darr;</a>
+          </div>
+        </form>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+document.querySelectorAll('.wp-toggle').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var card = document.getElementById(this.dataset.target);
+    card.classList.toggle('expanded');
+    this.style.display = card.classList.contains('expanded') ? 'none' : '';
+  });
+});
+</script>
