@@ -507,6 +507,18 @@ a { color: inherit; text-decoration: none; }
   grid-template-columns: 1fr 1fr;
   gap: .75rem;
 }
+.wp-label {
+  display: flex;
+  flex-direction: column;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text);
+  gap: .3rem;
+}
+.wp-label .required {
+  color: #c0392b;
+  font-weight: 700;
+}
 .wp-form input {
   padding: .75rem 1rem;
   border: 1px solid rgba(0,0,0,.15);
@@ -515,6 +527,9 @@ a { color: inherit; text-decoration: none; }
   font-size: .9rem;
   background: var(--cream);
   transition: border-color .2s;
+}
+.wp-form input:invalid:not(:placeholder-shown) {
+  border-color: #c0392b;
 }
 .wp-form input:focus {
   outline: none;

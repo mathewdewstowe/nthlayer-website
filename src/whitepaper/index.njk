@@ -22,10 +22,10 @@ description: Insights and thought leadership from The Nth Layer.
       <div class="wp-form-wrap">
         <form action="https://formspree.io/f/xcontact" method="POST" class="wp-form">
           <input type="hidden" name="_subject" value="Whitepaper Download: AI-Native Product Leadership">
-          <input type="text" name="name" placeholder="Name *" required>
-          <input type="text" name="jobtitle" placeholder="Job Title *" required>
-          <input type="text" name="company" placeholder="Company *" required>
-          <input type="email" name="email" placeholder="Email *" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+          <label class="wp-label">Name <span class="required">*</span><input type="text" name="name" placeholder="Name" required></label>
+          <label class="wp-label">Job Title <span class="required">*</span><input type="text" name="jobtitle" placeholder="Job Title" required></label>
+          <label class="wp-label">Company <span class="required">*</span><input type="text" name="company" placeholder="Company" required></label>
+          <label class="wp-label">Email <span class="required">*</span><input type="email" name="email" placeholder="Email" required></label>
           <div class="wp-form-footer">
             <a href="/assets/downloads/ai-native-product-leadership.pdf" class="btn" download onclick="this.closest('form').submit()">Free Download &darr;</a>
           </div>
@@ -42,6 +42,20 @@ document.querySelectorAll('.wp-toggle').forEach(function(btn){
     var card = document.getElementById(this.dataset.target);
     card.classList.toggle('expanded');
     this.style.display = card.classList.contains('expanded') ? 'none' : '';
+  });
+});
+// Email validation
+document.querySelectorAll('.wp-form').forEach(function(form){
+  form.addEventListener('submit', function(e){
+    var email = form.querySelector('input[name="email"]');
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!re.test(email.value)) {
+      e.preventDefault();
+      email.setCustomValidity('Please enter a valid email address');
+      email.reportValidity();
+    } else {
+      email.setCustomValidity('');
+    }
   });
 });
 </script>
