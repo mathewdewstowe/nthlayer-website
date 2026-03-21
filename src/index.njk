@@ -12,7 +12,7 @@ title: Product Leadership for Investors & Operators
     </div>
     <div class="hero-description">
       <p>I work with PE-backed SaaS companies where AI is redefining value creation — redesigning product strategy and operating models to turn AI ambition into measurable growth, efficiency, and valuation impact.</p>
-      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+      <a href="#" class="btn open-modal">Get in Touch &rarr;</a>
     </div>
   </div>
 </section>
@@ -68,7 +68,7 @@ title: Product Leadership for Investors & Operators
       <h2>Why Me?</h2>
       <p>AI-native Product Leader and exited founder with a proven record of growth across B2B SaaS from 0-1 and scaling 1-N. Experienced across Agentic AI, enterprise product strategy, and value creation for high-growth PE and venture-backed environments. I've led multiple AI platform shifts and built and commercialised AI products to deliver measurable gains in revenue, retention, and product velocity.</p>
       <p>I turn ambiguity into strategy, define market-winning roadmaps, and drive execution across product, engineering and GTM. Proven ability to improve unit economics with efficiency-led automation, product-led growth motions, and drive valuation uplift through scalable AI-first workflows.</p>
-      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+      <a href="#" class="btn open-modal">Get in Touch &rarr;</a>
     </div>
     <div class="why-image">
       <img src="/assets/images/headshot.jpg" alt="Matthew Dewstowe" loading="lazy">
@@ -120,14 +120,15 @@ title: Product Leadership for Investors & Operators
       </div>
     </div>
     <div class="section-cta">
-      <a href="#contact" class="btn">Get in Touch &rarr;</a>
+      <a href="#" class="btn open-modal">Get in Touch &rarr;</a>
     </div>
   </div>
 </section>
 
-{# ── Contact ── #}
-<section id="contact" class="contact-section">
-  <div class="container contact-inner">
+{# ── Contact Modal ── #}
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" aria-label="Close">&times;</button>
     <h2>Get in Touch</h2>
     <form action="https://formspree.io/f/xcontact" method="POST" class="contact-form">
       <div class="form-row">
@@ -145,7 +146,7 @@ title: Product Leadership for Investors & Operators
       <button type="submit" class="btn">Submit &rarr;</button>
     </form>
   </div>
-</section>
+</div>
 
 <script>
 (function(){
@@ -179,4 +180,21 @@ title: Product Leadership for Investors & Operators
     });
   });
 })();
+
+// Contact modal
+var modal=document.getElementById('contactModal');
+document.querySelectorAll('.open-modal').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+});
+modal.querySelector('.modal-close').addEventListener('click',function(){
+  modal.classList.remove('active');
+  document.body.style.overflow='';
+});
+modal.addEventListener('click',function(e){
+  if(e.target===modal){modal.classList.remove('active');document.body.style.overflow='';}
+});
 </script>
