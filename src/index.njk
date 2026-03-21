@@ -182,19 +182,23 @@ title: Product Leadership for Investors & Operators
 })();
 
 // Contact modal
-var modal=document.getElementById('contactModal');
-document.querySelectorAll('.open-modal').forEach(function(btn){
-  btn.addEventListener('click',function(e){
-    e.preventDefault();
-    modal.classList.add('active');
-    document.body.style.overflow='hidden';
+document.addEventListener('DOMContentLoaded',function(){
+  var modal=document.getElementById('contactModal');
+  if(!modal) return;
+  document.querySelectorAll('.open-modal').forEach(function(btn){
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      modal.classList.add('active');
+      document.body.style.overflow='hidden';
+    });
   });
-});
-modal.querySelector('.modal-close').addEventListener('click',function(){
-  modal.classList.remove('active');
-  document.body.style.overflow='';
-});
-modal.addEventListener('click',function(e){
-  if(e.target===modal){modal.classList.remove('active');document.body.style.overflow='';}
+  modal.querySelector('.modal-close').addEventListener('click',function(){
+    modal.classList.remove('active');
+    document.body.style.overflow='';
+  });
+  modal.addEventListener('click',function(e){
+    if(e.target===modal){modal.classList.remove('active');document.body.style.overflow='';}
+  });
 });
 </script>
