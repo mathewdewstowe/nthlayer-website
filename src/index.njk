@@ -93,13 +93,24 @@ title: Product Leadership for Investors & Operators
   <div class="container">
     <h2 class="section-title">My Services</h2>
     <p class="section-subtitle">I partner with teams to turn strategy into scalable products and results. Hands-on leadership, proven frameworks, and a focus on growth.</p>
-    <div class="services-radial">
-      <div class="services-ring">
+    <div class="services-wheel-wrap">
+      <div class="services-wheel">
+        <div class="wheel-center">
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="28" r="14" stroke="#0d2b3e" stroke-width="1.5" fill="none"/>
+            <path d="M22 28h16M30 20v16" stroke="#0d2b3e" stroke-width="1" opacity=".3"/>
+            <circle cx="30" cy="28" r="5" stroke="#0d2b3e" stroke-width="1.5" fill="none"/>
+            <path d="M20 42h20M24 46h12M28 50h4" stroke="#0d2b3e" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M25 18l5-5 5 5" stroke="#0d2b3e" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
         {% for service in services %}
-        <div class="service-node service-node-{{ loop.index }}">
-          <span class="service-label">{{ service.title }}</span>
-          <button class="service-expand" aria-label="Expand {{ service.title }}">+</button>
-          <div class="service-detail">
+        <div class="wheel-item wheel-item-{{ loop.index }}" data-index="{{ loop.index }}">
+          <button class="wheel-toggle" aria-expanded="false">
+            <span class="wheel-icon">+</span>
+          </button>
+          <span class="wheel-label">{{ service.title }}</span>
+          <div class="wheel-detail">
             {% for line in service.description %}
             <p>{{ line }}</p>
             {% endfor %}
@@ -113,3 +124,44 @@ title: Product Leadership for Investors & Operators
     </div>
   </div>
 </section>
+
+{# ── Contact Form (Formspree) ── #}
+<section id="contact" class="contact-section">
+  <div class="container contact-inner">
+    <h2>Get in Touch</h2>
+    <form action="https://formspree.io/f/xcontact" method="POST" class="contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="jobtitle" placeholder="Job Title">
+      </div>
+      <div class="form-row">
+        <input type="text" name="company" placeholder="Company">
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-row">
+        <input type="tel" name="telephone" placeholder="Telephone">
+      </div>
+      <textarea name="message" placeholder="Message" rows="5"></textarea>
+      <button type="submit" class="btn">Submit &rarr;</button>
+    </form>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.wheel-toggle').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const item = this.closest('.wheel-item');
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.wheel-item').forEach(i => i.classList.remove('active'));
+    document.querySelectorAll('.wheel-toggle').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.querySelector('.wheel-icon').textContent = '+';
+    });
+    if (!wasActive) {
+      item.classList.add('active');
+      this.setAttribute('aria-expanded', 'true');
+      this.querySelector('.wheel-icon').textContent = '−';
+    }
+  });
+});
+</script>
