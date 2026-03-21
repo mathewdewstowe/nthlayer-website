@@ -17,11 +17,10 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Hero image (background) ── #}
-<section class="hero-image-bg">
-</section>
+{# ── Hero image ── #}
+<section class="hero-image-bg"></section>
 
-{# ── Audience cards (overlapping hero) ── #}
+{# ── Audience cards ── #}
 <section class="audience">
   <div class="container audience-grid">
     <div class="audience-card">
@@ -51,12 +50,10 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Why Fractional? (2-column with background image) ── #}
+{# ── Why Fractional? ── #}
 <section class="why-section why-fractional">
   <div class="container why-fractional-grid">
-    <div class="why-fractional-heading">
-      <h2>Why Fractional?</h2>
-    </div>
+    <div class="why-fractional-heading"><h2>Why Fractional?</h2></div>
     <div class="why-fractional-text">
       <p>Fractional product or AI leadership complements, rather than replaces, a sitting CPO or CPTO. While permanent leaders focus on running the organisation, delivery, and team performance, fractional leadership is brought in to solve specific strategic or transformational challenges that sit outside day-to-day execution.</p>
       <p>It provides independent perspective to CEOs and investors, accelerates discovery and experimentation, and injects specialised expertise — such as agentic AI, automation, or operating model change – without increasing permanent executive overhead. The result is faster progress on high-impact initiatives while core leadership maintains operational momentum.</p>
@@ -88,32 +85,35 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Services (radial layout) ── #}
+{# ── Services (interactive wheel) ── #}
 <section id="services" class="services-section">
   <div class="container">
     <h2 class="section-title">My Services</h2>
     <p class="section-subtitle">I partner with teams to turn strategy into scalable products and results. Hands-on leadership, proven frameworks, and a focus on growth.</p>
-    <div class="services-wheel-wrap">
-      <div class="services-wheel">
-        <div class="wheel-center">
-          <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="30" cy="28" r="14" stroke="#0d2b3e" stroke-width="1.5" fill="none"/>
-            <path d="M22 28h16M30 20v16" stroke="#0d2b3e" stroke-width="1" opacity=".3"/>
-            <circle cx="30" cy="28" r="5" stroke="#0d2b3e" stroke-width="1.5" fill="none"/>
-            <path d="M20 42h20M24 46h12M28 50h4" stroke="#0d2b3e" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M25 18l5-5 5 5" stroke="#0d2b3e" stroke-width="1.2" fill="none"/>
+    <div class="wheel-wrap">
+      <div class="wheel" id="servicesWheel">
+        <svg class="wheel-svg" viewBox="0 0 600 600">
+          {% for s in services %}
+          <path class="wedge" data-i="{{ loop.index0 }}" d="" fill="transparent"/>
+          {% endfor %}
+          <circle cx="300" cy="300" r="60" fill="white" stroke="rgba(190,185,210,.25)" stroke-width="1"/>
+        </svg>
+        <div class="wheel-center-icon">
+          <svg width="44" height="44" viewBox="0 0 50 50" fill="none">
+            <circle cx="25" cy="22" r="11" stroke="#0d2b3e" stroke-width="1.3"/>
+            <circle cx="25" cy="22" r="4" stroke="#0d2b3e" stroke-width="1.3"/>
+            <path d="M17 36h16M20 40h10M23 44h4" stroke="#0d2b3e" stroke-width="1.3" stroke-linecap="round"/>
           </svg>
         </div>
         {% for service in services %}
-        <div class="wheel-item wheel-item-{{ loop.index }}" data-index="{{ loop.index }}">
-          <button class="wheel-toggle" aria-expanded="false">
-            <span class="wheel-icon">+</span>
-          </button>
-          <span class="wheel-label">{{ service.title }}</span>
-          <div class="wheel-detail">
-            {% for line in service.description %}
-            <p>{{ line }}</p>
-            {% endfor %}
+        <div class="svc" data-i="{{ loop.index0 }}">
+          <button class="svc-btn"><span>+</span></button>
+          <div class="svc-name">{{ service.title }}</div>
+          <div class="svc-card">
+            <strong>{{ service.title }}</strong>
+            <ul>
+              {% for line in service.description %}<li>{{ line }}</li>{% endfor %}
+            </ul>
           </div>
         </div>
         {% endfor %}
@@ -125,7 +125,7 @@ title: Product Leadership for Investors & Operators
   </div>
 </section>
 
-{# ── Contact Form (Formspree) ── #}
+{# ── Contact ── #}
 <section id="contact" class="contact-section">
   <div class="container contact-inner">
     <h2>Get in Touch</h2>
@@ -148,20 +148,35 @@ title: Product Leadership for Investors & Operators
 </section>
 
 <script>
-document.querySelectorAll('.wheel-toggle').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const item = this.closest('.wheel-item');
-    const wasActive = item.classList.contains('active');
-    document.querySelectorAll('.wheel-item').forEach(i => i.classList.remove('active'));
-    document.querySelectorAll('.wheel-toggle').forEach(b => {
-      b.setAttribute('aria-expanded', 'false');
-      b.querySelector('.wheel-icon').textContent = '+';
-    });
-    if (!wasActive) {
-      item.classList.add('active');
-      this.setAttribute('aria-expanded', 'true');
-      this.querySelector('.wheel-icon').textContent = '−';
-    }
+(function(){
+  var R=300,r=280,N=8,off=-Math.PI/2+Math.PI/N;
+  document.querySelectorAll('.wedge').forEach(function(w){
+    var i=+w.dataset.i,a1=off+i*2*Math.PI/N,a2=off+(i+1)*2*Math.PI/N;
+    var x1=R+r*Math.cos(a1),y1=R+r*Math.sin(a1);
+    var x2=R+r*Math.cos(a2),y2=R+r*Math.sin(a2);
+    w.setAttribute('d','M'+R+','+R+' L'+x1+','+y1+' A'+r+','+r+' 0 0,1 '+x2+','+y2+' Z');
+    w.setAttribute('fill',i%2===0?'rgba(220,215,235,.12)':'rgba(235,232,225,.15)');
   });
-});
+  document.querySelectorAll('.svc').forEach(function(s){
+    var i=+s.dataset.i,a=off+(i+.5)*2*Math.PI/N;
+    s.style.left=(50+38*Math.cos(a))+'%';
+    s.style.top=(50+38*Math.sin(a))+'%';
+  });
+  document.querySelectorAll('.svc-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var svc=this.closest('.svc'),i=svc.dataset.i;
+      var wasActive=svc.classList.contains('active');
+      document.querySelectorAll('.svc').forEach(function(s){s.classList.remove('active')});
+      document.querySelectorAll('.svc-btn span').forEach(function(s){s.textContent='+'});
+      document.querySelectorAll('.wedge').forEach(function(w){
+        w.setAttribute('fill',+w.dataset.i%2===0?'rgba(220,215,235,.12)':'rgba(235,232,225,.15)');
+      });
+      if(!wasActive){
+        svc.classList.add('active');
+        this.querySelector('span').textContent='\u2212';
+        document.querySelector('.wedge[data-i="'+i+'"]').setAttribute('fill','#0d2b3e');
+      }
+    });
+  });
+})();
 </script>
