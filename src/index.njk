@@ -119,6 +119,23 @@ title: Product Leadership for Investors & Operators
         {% endfor %}
       </div>
     </div>
+    {# ── Mobile: stacked service blocks (hidden on desktop) ── #}
+    <div class="services-mobile">
+      {% for service in services %}
+      <div class="svc-block">
+        <button class="svc-block-toggle">
+          <span class="svc-block-title">{{ service.title }}</span>
+          <span class="svc-block-icon">+</span>
+        </button>
+        <div class="svc-block-body">
+          <ul>
+            {% for line in service.description %}<li>{{ line }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
     <div class="section-cta">
       <a href="#" class="btn open-modal">Contact</a>
     </div>
@@ -181,6 +198,20 @@ title: Product Leadership for Investors & Operators
     });
   });
 })();
+
+// Mobile service blocks toggle
+document.querySelectorAll('.svc-block-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var block=this.closest('.svc-block');
+    var wasOpen=block.classList.contains('open');
+    document.querySelectorAll('.svc-block').forEach(function(b){b.classList.remove('open')});
+    document.querySelectorAll('.svc-block-icon').forEach(function(s){s.textContent='+'});
+    if(!wasOpen){
+      block.classList.add('open');
+      this.querySelector('.svc-block-icon').textContent='\u2212';
+    }
+  });
+});
 
 // Contact modal
 document.addEventListener('DOMContentLoaded',function(){
