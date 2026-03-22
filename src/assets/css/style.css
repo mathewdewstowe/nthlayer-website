@@ -282,11 +282,11 @@ a { color: inherit; text-decoration: none; }
 .wheel-outer-rings {
   position: absolute;
   top: 50%; left: 50%;
-  width: 150%;
-  padding-bottom: 150%;
+  width: 160%;
+  padding-bottom: 160%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(190,185,215,.3);
+  border: 1px solid rgba(180,175,210,.35);
   pointer-events: none;
   z-index: 0;
 }
@@ -295,11 +295,11 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   top: 50%; left: 50%;
-  width: 82%;
-  padding-bottom: 82%;
+  width: 85%;
+  padding-bottom: 85%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1.5px solid rgba(190,185,215,.4);
+  border: 1px solid rgba(180,175,210,.45);
 }
 
 .wheel {
@@ -315,10 +315,9 @@ a { color: inherit; text-decoration: none; }
       rgba(245,242,235,1) 42%,
       rgba(220,215,235,.7) 42.5%,
       rgba(220,215,235,.7) 68%,
-      rgba(210,205,228,.5) 68.5%,
-      rgba(210,205,228,.5) 85%,
-      rgba(200,195,222,.35) 85.5%,
-      rgba(200,195,222,.35) 100%
+      rgba(210,205,228,.45) 68.5%,
+      rgba(210,205,228,.45) 82%,
+      rgba(210,205,228,0) 100%
     );
 }
 
