@@ -360,15 +360,17 @@ a { color: inherit; text-decoration: none; }
 .svc-card ul { padding-left: 1.1rem; margin: 0; }
 .svc-card li { font-size: .82rem; color: var(--text-light); margin-bottom: .4rem; line-height: 1.5; }
 
-/* Card positions: left-side services show card to the left, right-side to the right */
+/* Card positions: each card opens outward from the wheel center */
 .svc[data-i="0"] .svc-card,
-.svc[data-i="1"] .svc-card { top: 100%; left: 50%; transform: translateX(-50%); }
-.svc[data-i="2"] .svc-card,
-.svc[data-i="3"] .svc-card { top: 0; right: 110%; left: auto; }
+.svc[data-i="1"] .svc-card,
+.svc[data-i="2"] .svc-card { top: 0; left: 110%; }
+.svc[data-i="3"] .svc-card { top: 100%; left: 50%; transform: translateX(-50%); }
+
 .svc[data-i="4"] .svc-card,
-.svc[data-i="5"] .svc-card { bottom: 100%; left: 50%; transform: translateX(-50%); top: auto; }
-.svc[data-i="6"] .svc-card,
-.svc[data-i="7"] .svc-card { top: 0; left: 110%; }
+.svc[data-i="5"] .svc-card,
+.svc[data-i="6"] .svc-card { top: 0; right: 110%; left: auto; }
+.svc[data-i="7"] .svc-card { bottom: 100%; left: 50%; transform: translateX(-50%); top: auto; }
+
 
 .section-cta { text-align: center; margin-top: 3rem; }
 
