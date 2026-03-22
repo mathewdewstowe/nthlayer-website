@@ -15,7 +15,7 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 
 
 body {
@@ -277,7 +277,6 @@ a { color: inherit; text-decoration: none; }
   max-width: 650px;
   margin: 0 auto;
   position: relative;
-  overflow: visible;
 }
 
 .wheel-outer-rings {
