@@ -323,7 +323,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.3;
   transition: color .3s;
 }
-.svc.active .svc-name { color: var(--white); }
+.svc.active .svc-name { color: var(--dark); }
 
 .svc-btn {
   display: flex;
