@@ -279,28 +279,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
 }
 
-.wheel-outer-rings {
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 160%;
-  padding-bottom: 160%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1px solid rgba(180,175,210,.35);
-  pointer-events: none;
-  z-index: 0;
-}
 
-.wheel-outer-rings::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 85%;
-  padding-bottom: 85%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: 1px solid rgba(180,175,210,.45);
-}
 
 .wheel {
   position: relative;
@@ -308,6 +287,9 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   padding-bottom: 100%;
   border-radius: 50%;
+  box-shadow:
+    0 0 0 30px rgba(190,185,215,.25),
+    0 0 0 70px rgba(190,185,215,.12);
   background:
     radial-gradient(circle,
       rgba(255,255,255,1) 9.5%,
@@ -315,9 +297,10 @@ a { color: inherit; text-decoration: none; }
       rgba(245,242,235,1) 42%,
       rgba(220,215,235,.7) 42.5%,
       rgba(220,215,235,.7) 68%,
-      rgba(210,205,228,.45) 68.5%,
-      rgba(210,205,228,.45) 82%,
-      rgba(210,205,228,0) 100%
+      rgba(210,205,228,.5) 68.5%,
+      rgba(210,205,228,.5) 85%,
+      rgba(200,195,222,.35) 85.5%,
+      rgba(200,195,222,.35) 100%
     );
 }
 
@@ -775,7 +758,7 @@ a { color: inherit; text-decoration: none; }
   .audience { margin-top: -2rem; }
   .audience-grid { padding: 1.5rem; }
   .wheel-wrap { display: none; }
-  .wheel-outer-rings { display: none; }
+
   .services-mobile { display: block; }
   .partners-inner { gap: 2rem; flex-wrap: wrap; }
   .partners-inner img { height: 35px; }
