@@ -30,6 +30,18 @@
     </div>
   </header>
 
+  <script>
+  (function(){
+    var toggle = document.querySelector('.mobile-nav-toggle');
+    var nav = document.querySelector('.main-nav');
+    if(toggle && nav){
+      toggle.addEventListener('click', function(){
+        nav.classList.toggle('open');
+      });
+    }
+  })();
+  </script>
+
 
   <main>
     {{ content | safe }}
