@@ -15,7 +15,8 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+*, *::before, *::after { overflow-wrap: break-word; }
 
 body {
   font-family: var(--font-sans);
@@ -262,8 +263,13 @@ a { color: inherit; text-decoration: none; }
 .section-subtitle {
   text-align: center;
   color: var(--text-light);
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto 3rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .section-subtitle { white-space: normal; max-width: 100%; }
 }
 
 .wheel-wrap {
