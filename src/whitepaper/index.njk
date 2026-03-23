@@ -9,14 +9,14 @@ description: Insights and thought leadership from The Nth Layer.
     <header class="whitepapers-header">
       <h1>Whitepaper</h1>
       <h3>The Autonomous Work Layer: From Human Execution to Agent Orchestration</h3>
-      <p>Exploring how AI agents are reshaping the operating model — moving organisations from human-led execution to intelligent agent orchestration at scale.</p>
+      <p>Most organisations are bolting AI onto legacy workflows and capturing a fraction of the value. The Autonomous Work Layer is a paradigm shift: from human orchestration to agent orchestration.</p>
     </header>
 
     <div class="whitepaper-card" id="wp1">
       <div class="whitepaper-content">
         <h2>The Autonomous Work Layer: From Human Execution to Agent Orchestration</h2>
-        <p class="wp-lead">AI agents are no longer a future capability — they are rewriting how software companies operate, deliver, and scale. Yet most SaaS businesses are still bolting AI features onto legacy operating models, capturing a fraction of the value available. This whitepaper introduces the concept of the Autonomous Work Layer — a new operating architecture where AI agents handle execution, humans shift to orchestration, and product strategy becomes the system that connects the two.</p>
-        <p>It examines why the current wave of AI adoption is stalling, what the highest-performing organisations are doing differently, and provides a practical framework for identifying which workflows to automate, augment, or leave human-led. Drawing on real-world patterns from scaling SaaS companies, it shows how to restructure product teams around agent orchestration — and demonstrates how this shift has driven measurable gains in margin, velocity, and valuation.</p>
+        <p class="wp-lead">Most organisations are bolting AI onto legacy workflows and capturing a fraction of the value. The Autonomous Work Layer is a paradigm shift: from human orchestration to agent orchestration. A self-learning, goal-directed system absorbs the operational overhead that fills most of a knowledge worker's day — the triaging, monitoring, context-switching, and chasing — and presents only the decisions that require human judgement.</p>
+        <p>The result is structural, not incremental. Deep thinking replaces task management. Relationship building replaces reactivity. And unlike a chatbot, the system compounds — every week it runs, it gets measurably better.</p>        <p><em>Written for CEOs, PE operating partners, and fractional leaders scaling without proportional headcount growth.</em></p>
       </div>
       <div class="whitepaper-action">
         <button class="btn wp-toggle" data-target="wp1">Download PDF &darr;</button>
@@ -31,14 +31,13 @@ description: Insights and thought leadership from The Nth Layer.
           <div class="wp-form-footer">
             <button type="submit" class="btn">Free Download &darr;</button>
           </div>
-          <p class="form-success" style="display:none;color:var(--navy);text-align:center;margin-top:1rem;font-size:1.1rem;grid-column:1/-1;">Thank you, we will be in touch.</p>
+          <p class="form-success" style="display:none;color:var(--navy);text-align:center;margin-top:1rem;font-size:1.1rem;grid-column:1/-1;">Thank you — your download will begin shortly.</p>
         </form>
       </div>
     </div>
 
   </div>
 </section>
-
 <script>
 document.querySelectorAll('.wp-toggle').forEach(function(btn){
   btn.addEventListener('click', function(){
@@ -47,7 +46,7 @@ document.querySelectorAll('.wp-toggle').forEach(function(btn){
     this.style.display = card.classList.contains('expanded') ? 'none' : '';
   });
 });
-// Whitepaper form: submit via fetch, show thank you
+// Whitepaper form: submit via fetch, show thank you, then trigger PDF download
 var wpForm=document.getElementById('wpForm1');
 if(wpForm) wpForm.addEventListener('submit',function(e){
   e.preventDefault();
@@ -63,10 +62,12 @@ if(wpForm) wpForm.addEventListener('submit',function(e){
     .then(function(){
       wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
       wpForm.querySelector('.form-success').style.display='block';
+      window.open('/assets/AWL-Whitepaper-Nth-Layer.pdf','_blank');
     })
     .catch(function(){
       wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
       wpForm.querySelector('.form-success').style.display='block';
+      window.open('/assets/AWL-Whitepaper-Nth-Layer.pdf','_blank');
     });
 });
 </script>
