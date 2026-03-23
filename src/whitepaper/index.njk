@@ -60,12 +60,12 @@ if(wpForm) wpForm.addEventListener('submit',function(e){
     .then(function(){
       wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
       wpForm.querySelector('.form-success').style.display='block';
-      window.open('/assets/AWL-Whitepaper-Nth-Layer.pdf','_blank');
+      var a=document.createElement('a');a.href='/assets/AWL-Whitepaper-Nth-Layer.pdf';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();document.body.removeChild(a);
     })
     .catch(function(){
       wpForm.querySelectorAll('label,button,.wp-form-footer').forEach(function(el){el.style.display='none';});
       wpForm.querySelector('.form-success').style.display='block';
-      window.open('/assets/AWL-Whitepaper-Nth-Layer.pdf','_blank');
+      var a=document.createElement('a');a.href='/assets/AWL-Whitepaper-Nth-Layer.pdf';a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();document.body.removeChild(a);
     });
 });
 </script>
