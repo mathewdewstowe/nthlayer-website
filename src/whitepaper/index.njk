@@ -13,12 +13,11 @@ description: Insights and thought leadership from The Nth Layer.
 
     <div class="whitepaper-card" id="wp1">
       <div class="whitepaper-content">
-        <h2>The Autonomous Work Layer: From Human Execution to Agent Orchestration</h2>
-        <p class="wp-lead">The next source of measurable value in knowledge-intensive businesses is not better AI tools. It is a paradigm shift: from human orchestration to agent orchestration. Today, knowledge workers spend 60–70% of their time on operational overhead — triaging inboxes, monitoring pipelines, switching between tools, and managing tasks that demand attention but not judgement. AI assistants have made individual tasks faster, but they have not changed who is doing the orchestrating. The leader is still the operating system.</p>
-        <p>The Autonomous Work Layer changes this. A self-learning, goal-directed agent takes over the orchestration itself: it monitors every pipeline and project, identifies the highest-impact next actions, and presents only the decisions that require human judgement. It remembers context across weeks and months, learns from every approval and every outcome, and improves through a continuous loop of execution, evaluation, and self-correction — not through manual configuration.</p>        <p>The result is structural, not incremental. Deep thinking replaces task management. Relationship building replaces reactivity. The operational noise that fills most of a knowledge worker's day is progressively absorbed by the system, freeing senior talent for strategic positioning and the judgement calls that determine whether a company wins its market.</p>
-        <p><em>Written for CEOs and founders scaling without proportional headcount growth, PE and VC operating partners evaluating AI infrastructure across a portfolio, and fractional leaders deploying this pattern at companies in transition.</em></p>
-      </div>
-      <div class="whitepaper-action">
+        <h2>What Changes When the System Runs Itself</h2>
+        <p class="wp-lead">Knowledge workers today spend a significant amount of their time on operational overhead — checking pipelines, chasing updates, triaging inboxes, switching between tools. AI has made tasks faster, but it hasn't changed who is doing the orchestrating. The human is still the operating system.</p>
+        <p>It doesn't have to work this way. Semi-autonomous, goal-directed agent systems can take over the operational layer — monitoring every project, surfacing only what matters, and learning from every decision you make. You set the objectives, approve the actions, and the system gets better every week it runs.</p>
+        <p>This technology is available today. This paper is written for leaders looking to drive margin increases and growth — without scaling headcount.</p>
+      </div>      <div class="whitepaper-action">
         <button class="btn wp-toggle" data-target="wp1">Download PDF &darr;</button>
       </div>
       <div class="wp-form-wrap">
@@ -38,6 +37,7 @@ description: Insights and thought leadership from The Nth Layer.
 
   </div>
 </section>
+
 <script>
 document.querySelectorAll('.wp-toggle').forEach(function(btn){
   btn.addEventListener('click', function(){
@@ -45,8 +45,7 @@ document.querySelectorAll('.wp-toggle').forEach(function(btn){
     card.classList.toggle('expanded');
     this.style.display = card.classList.contains('expanded') ? 'none' : '';
   });
-});
-var wpForm=document.getElementById('wpForm1');
+});var wpForm=document.getElementById('wpForm1');
 if(wpForm) wpForm.addEventListener('submit',function(e){
   e.preventDefault();
   var email=wpForm.querySelector('input[name="email"]');
