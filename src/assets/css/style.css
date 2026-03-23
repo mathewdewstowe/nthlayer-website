@@ -117,7 +117,7 @@ a { color: inherit; text-decoration: none; }
 .hero-image-bg {
   width: 100%;
   height: 480px;
-  background: url('/assets/images/hero-tree.webp') center/cover no-repeat;
+  background: url('/assets/images/hero-tree.png') center/cover no-repeat;
 }
 
 /* ── Audience (overlapping hero image) ── */
