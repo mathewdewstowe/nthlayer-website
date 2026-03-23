@@ -8,15 +8,16 @@ description: Insights and thought leadership from The Nth Layer.
   <div class="container">
     <header class="whitepapers-header">
       <h1>Whitepaper</h1>
-      <h3>The Autonomous Work Layer: From Human Execution to Agent Orchestration</h3>
-      <p>Most organisations are bolting AI onto legacy workflows and capturing a fraction of the value. The Autonomous Work Layer is a paradigm shift: from human orchestration to agent orchestration.</p>
+      <h3>The Autonomous Work Layer</h3>
+      <p>How self-learning, goal-directed agent orchestration creates compounding operational leverage — shifting organisations from human-led execution to semi-autonomous, agent-orchestrated systems.</p>
     </header>
 
     <div class="whitepaper-card" id="wp1">
       <div class="whitepaper-content">
         <h2>The Autonomous Work Layer: From Human Execution to Agent Orchestration</h2>
-        <p class="wp-lead">Most organisations are bolting AI onto legacy workflows and capturing a fraction of the value. The Autonomous Work Layer is a paradigm shift: from human orchestration to agent orchestration. A self-learning, goal-directed system absorbs the operational overhead that fills most of a knowledge worker's day — the triaging, monitoring, context-switching, and chasing — and presents only the decisions that require human judgement.</p>
-        <p>The result is structural, not incremental. Deep thinking replaces task management. Relationship building replaces reactivity. And unlike a chatbot, the system compounds — every week it runs, it gets measurably better.</p>        <p><em>Written for CEOs, PE operating partners, and fractional leaders scaling without proportional headcount growth.</em></p>
+        <p class="wp-lead">The next source of measurable value in knowledge-intensive businesses is not better AI tools. It is a paradigm shift: from human orchestration to agent orchestration. Today, knowledge workers spend 60–70% of their time on operational overhead — triaging inboxes, monitoring pipelines, switching between tools, and managing tasks that demand attention but not judgement. AI assistants have made individual tasks faster, but they have not changed who is doing the orchestrating. The leader is still the operating system.</p>
+        <p>The Autonomous Work Layer changes this. A self-learning, goal-directed agent takes over the orchestration itself: it monitors every pipeline and project, identifies the highest-impact next actions, and presents only the decisions that require human judgement. It remembers context across weeks and months, learns from every approval and every outcome, and improves through a continuous loop of execution, evaluation, and self-correction — not through manual configuration.</p>        <p>The result is structural, not incremental. Deep thinking replaces task management. Relationship building replaces reactivity. The operational noise that fills most of a knowledge worker's day is progressively absorbed by the system, freeing senior talent for strategic positioning and the judgement calls that determine whether a company wins its market.</p>
+        <p><em>Written for CEOs and founders scaling without proportional headcount growth, PE and VC operating partners evaluating AI infrastructure across a portfolio, and fractional leaders deploying this pattern at companies in transition.</em></p>
       </div>
       <div class="whitepaper-action">
         <button class="btn wp-toggle" data-target="wp1">Download PDF &darr;</button>
@@ -46,7 +47,6 @@ document.querySelectorAll('.wp-toggle').forEach(function(btn){
     this.style.display = card.classList.contains('expanded') ? 'none' : '';
   });
 });
-// Whitepaper form: submit via fetch, show thank you, then trigger PDF download
 var wpForm=document.getElementById('wpForm1');
 if(wpForm) wpForm.addEventListener('submit',function(e){
   e.preventDefault();
