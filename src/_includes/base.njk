@@ -3,12 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }} – {{ site.title }}</title>
-  <meta name="description" content="{{ description or site.description }}">
+  <title>{{ seoTitle or (title + ' – ' + site.title) }}</title>
+  <meta name="description" content="{{ seoDescription or description or site.description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  {# ── Open Graph (LinkedIn, Facebook) ── #}
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ ogTitle or seoTitle or title }}">
+  <meta property="og:description" content="{{ ogDescription or seoDescription or description or site.description }}">
+  <meta property="og:image" content="{{ site.url }}/assets/images/og-image.png">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_GB">
+
+  {# ── Twitter Card ── #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ ogTitle or seoTitle or title }}">
+  <meta name="twitter:description" content="{{ ogDescription or seoDescription or description or site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/images/og-image.png">
+
+  {# ── Favicon ── #}
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  {# ── Fonts & Styles ── #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  {# ── Structured Data: Organization + Person + ProfessionalService ── #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "{{ site.url }}/#organization",
+        "name": "{{ site.title }}",
+        "url": "{{ site.url }}",
+        "description": "{{ site.description }}",
+        "founder": {
+          "@type": "Person",
+          "@id": "{{ site.url }}/#person",
+          "name": "Matthew Dewstowe",
+          "jobTitle": "Fractional CPO & AI Product Leader",
+          "url": "{{ site.url }}",
+          "sameAs": ["{{ site.linkedin }}"],
+          "knowsAbout": [
+            "Product Strategy",
+            "AI Product Leadership",
+            "Agentic AI",
+            "Private Equity Value Creation",
+            "B2B SaaS",
+            "Product-Led Growth",
+            "Operating Model Transformation"
+          ]
+        },
+        "areaServed": {
+          "@type": "Place",
+          "name": "United Kingdom"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "{{ site.url }}/#service",
+        "name": "{{ site.title }}",
+        "provider": { "@id": "{{ site.url }}/#organization" },
+        "serviceType": "Fractional Product Leadership",
+        "description": "Fractional and interim AI-native product leadership for investors and operators of PE-backed SaaS companies.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Product Strategy", "description": "Define clear vision, strategic pillars, and measurable outcomes aligned with commercial goals." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Due Diligence", "description": "Evaluate product strategy, technology maturity, and organisational strength for investment decisions." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Go-to-Market Alignment", "description": "Bridge product, marketing, and sales to strengthen pipeline and revenue impact." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Transformation & Growth", "description": "Reshape portfolios, pricing, and positioning to unlock new markets." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interim Leadership", "description": "Provide stability and clarity in moments of transition." } }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}",
+        "name": "{{ site.title }}",
+        "publisher": { "@id": "{{ site.url }}/#organization" }
+      }
+    ]
+  }
+  </script>
+  {% if breadcrumb %}
+  {# ── Structured Data: Breadcrumbs ── #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" }
+      {% for crumb in breadcrumb %},
+      { "@type": "ListItem", "position": {{ loop.index + 1 }}, "name": "{{ crumb.name }}", "item": "{{ site.url }}{{ crumb.url }}" }
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
 </head>
 <body>
   <header class="site-header">
@@ -19,10 +120,8 @@
       <nav class="main-nav">
         <a href="/#about-me">About Me</a>
         <a href="/#services">Services</a>
-        <a href="/blog/">Blog</a>
+        <a href="/usecases/">Case Studies</a>
         <a href="/whitepaper/">Whitepaper</a>
-
-
       </nav>
       <button class="mobile-nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
