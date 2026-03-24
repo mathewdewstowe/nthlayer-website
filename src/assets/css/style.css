@@ -844,7 +844,8 @@ a { color: inherit; text-decoration: none; }
 .blog-article .container { max-width: 960px; }
 
 .blog-back {
-  display: inline-block;
+  display: block;
+  text-align: left;
   font-size: .85rem;
   font-weight: 500;
   color: var(--navy);
