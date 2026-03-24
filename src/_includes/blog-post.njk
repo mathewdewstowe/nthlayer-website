@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+
+<article class="blog-article">
+  <div class="container">
+    <header class="blog-article-header">
+      <a href="/blog/" class="blog-back">&larr; Back to Blog</a>
+      <div class="blog-card-meta">
+        <span class="blog-tag">{{ tag }}</span>
+        <span class="blog-date">{{ date }}</span>
+      </div>
+      <h1>{{ title }}</h1>
+      <p class="blog-article-lead">{{ lead }}</p>
+    </header>
+    <div class="blog-article-body">
+      {{ content | safe }}
+    </div>
+  </div>
+</article>
