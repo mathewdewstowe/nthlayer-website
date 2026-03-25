@@ -30,7 +30,13 @@ description: Real-world examples of product leadership driving measurable outcom
 
       <div class="usecase-result">
         <h2>Result</h2>
+        {% if uc.result is string %}
         <p>{{ uc.result }}</p>
+        {% else %}
+        {% for item in uc.result %}
+        <p>{{ item }}</p>
+        {% endfor %}
+        {% endif %}
       </div>
 
       <div class="section-cta">
