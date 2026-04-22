@@ -166,7 +166,7 @@
   .hero-left h1 .hero-line {
     display: block;
     white-space: nowrap;
-    font-size: clamp(48px, 6.5vw, 96px);
+    font-size: clamp(44px, 5.8vw, 84px);
     color: var(--white);
     text-shadow: 0 0 30px rgba(57,255,122,0.6), 0 0 60px rgba(57,255,122,0.35);
     min-height: 1.2em;
@@ -1123,10 +1123,22 @@
     footer { flex-direction: column; gap: 16px; padding: 28px 20px; }
 
     .diagnostic { padding: 80px 0; }
-    #diagModal { padding: 20px 12px; }
-    #diagBox { padding: 32px 24px; }
-    #contactModal { padding: 20px 12px; }
-    #contactModal > div { padding: 32px 24px; }
+    #diagIntroModal,
+    #diagModal,
+    #contactModal { padding: 16px 12px !important; }
+    #diagIntroModal > div,
+    #diagModal > div,
+    #contactModal > div { width: min(100%, 620px); margin: 24px auto 32px !important; padding: 28px 20px !important; box-sizing: border-box; }
+    #diagBox { padding: 28px 20px !important; }
+    #diagQuestion,
+    #diagHeadline { font-size: clamp(18px, 5.2vw, 24px) !important; line-height: 1.28 !important; overflow-wrap: anywhere; }
+    #diagIntroModal h2 { font-size: clamp(20px, 5vw, 26px) !important; line-height: 1.15 !important; overflow-wrap: anywhere; }
+    #diagIntroModal p { font-size: 14px !important; line-height: 1.65 !important; overflow-wrap: anywhere; }
+    #diagAnswers button,
+    #diagIntroSubmitBtn,
+    #contactModalForm button[type="submit"] { width: 100% !important; }
+    #contactModalForm > div { grid-template-columns: 1fr !important; }
+    #contactModalForm button[type="submit"] { align-self: stretch !important; }
   }
 
   /* ════════════════════════════
@@ -1208,7 +1220,7 @@
   .problem-col { background: #f7f7f5; border-radius: 12px; padding: 32px 28px; }
   .problem-col-n { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; color: #bbb; background: #f0f0ee; border-radius: 8px; padding: 6px 14px; margin-bottom: 16px; }
   .problem-col-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; color: #111; margin-bottom: 14px; line-height: 1.3; }
-  .problem-col-body { font-size: 13px; color: #444; line-height: 1.75; }
+  .problem-col-body { font-size: 13px; color: #444; line-height: 1.75; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* ════ STATS BAR ════ */
   .stats-bar { background: var(--black); padding: 40px 0; border-top: 1px solid #1a1a1a; }
@@ -1276,6 +1288,23 @@
   .service-name { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--black); margin-bottom: 10px; line-height: 1.2; }
   .service-outcome { font-size: 13px; color: #444; line-height: 1.75; max-width: 680px; }
 
+  /* ════ COST ANCHOR ════ */
+  .cost-anchor-section { background: #0d0d0d; padding: 64px 0; border-top: 1px solid #1a1a1a; }
+  .cost-anchor-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #555; margin-bottom: 20px; }
+  .cost-anchor-body { font-size: clamp(18px,1.8vw,24px); font-weight: 600; letter-spacing: -0.02em; color: #fff; line-height: 1.6; max-width: 760px; }
+
+  /* ════ USE CASES BY FUNCTION ════ */
+  .usecases-section { background: #f5f4f1; padding: 64px 0; border-top: 1px solid #e8e8e8; }
+  .usecases-section .section-label { color: #888; }
+  .usecases-heading { font-size: clamp(32px,4vw,52px); font-weight: 700; letter-spacing: -0.03em; color: #111; line-height: 1.1; margin-bottom: 20px; }
+  .usecases-intro { font-size: 17px; color: #555; line-height: 1.75; max-width: 640px; margin-bottom: 48px; }
+  .usecases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .usecase-card { background: #ffffff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 24px; transition: all 0.25s ease; }
+  .usecase-card:hover { border-color: rgba(57,255,122,0.4); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .usecase-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #f5f4f1; border-radius: 8px; margin-bottom: 16px; color: #111; }
+  .usecase-title { font-size: 15px; font-weight: 700; letter-spacing: -0.01em; color: #111; margin-bottom: 10px; line-height: 1.3; min-height: 2.6em; }
+  .usecase-desc { font-size: 12px; color: #666; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
   /* ════ WHY US ════ */
   .why-us-section { background: #0d0d0d; padding: 52px 0; border-top: 1px solid #1a1a1a; }
   .why-us-section .section-label { color: #999; }
@@ -1312,6 +1341,7 @@
     .service-row { grid-template-columns: 40px 1fr; }
     .services-inner { grid-template-columns: 1fr; gap: 48px; }
     .services-right { padding-top: 0; }
+    .usecases-grid { grid-template-columns: repeat(2, 1fr); }
     .outcomes-stats-grid { grid-template-columns: 1fr 1fr; }
     .outcome-stat { padding: 24px 20px; }
     .tension-quote { white-space: normal; font-size: clamp(14px,3.5vw,20px); }
@@ -1319,17 +1349,28 @@
 
   @media (max-width: 540px) {
     .framework-stages { grid-template-columns: 1fr; }
-    .hero-left h1 { min-height: 1.4em; overflow: hidden; margin-bottom: 8px; } .hero-left h1 .hero-line { font-size: clamp(18px, 5vw, 28px); white-space: nowrap; overflow: hidden; } .hero-subtext { font-size: 14px !important; line-height: 1.55 !important; margin-top: 8px !important; margin-bottom: 8px !important; } .hero-diag { margin-top: 20px; } .btn-diag { font-size: 11px; padding: 10px 16px; }
+    .hero-left h1 { min-height: 1.4em; overflow: hidden; margin-bottom: 8px; } .hero-left h1 .hero-line { font-size: clamp(18px, 5vw, 28px); white-space: nowrap; overflow: hidden; } .hero-subtext, .hero-subtext-2 { font-size: 14px !important; line-height: 1.55 !important; margin-top: 8px !important; margin-bottom: 8px !important; } .hero-diag { margin-top: 20px; width: 100%; } .btn-diag { font-size: 11px; padding: 10px 16px; width: 100%; justify-content: center; }
     .hero-left { padding: 72px 16px 40px; }
     .container { padding: 0 16px; }
     .hero-pill { font-size: 11px; padding: 8px 16px; }
     .problem-cols { grid-template-columns: 1fr; }
     .who-cards-grid { grid-template-columns: 1fr; }
+    .usecases-grid { grid-template-columns: 1fr; }
     .outcomes-stats-grid { grid-template-columns: 1fr; }
     .outcome-stat { border-left: none; border-bottom: 1px solid #e8e8e8; padding: 20px 0; }
     .outcome-stat:last-child { border-bottom: none; }
     .stats-bar-grid { grid-template-columns: 1fr; }
     .final-cta-section { padding: 80px 0; }
+    #diagIntroModal > div,
+    #diagModal > div,
+    #contactModal > div { padding: 24px 16px !important; }
+    #diagAnswers { gap: 10px !important; }
+    #diagIntroSubmitBtn,
+    #diagAnswers button,
+    #contactModalForm button[type="submit"] { padding: 14px 16px !important; font-size: 11px !important; }
+    #diagIntroModal button[onclick],
+    #diagModal button[onclick],
+    #contactModal button[onclick] { top: 12px !important; right: 14px !important; }
   }
 
 
@@ -1468,6 +1509,7 @@
   <button class="side-nav-btn active" data-target="hero" data-label="Landing"></button>
   <button class="side-nav-btn" data-target="problem" data-label="The Problem"></button>
   <button class="side-nav-btn" data-target="services" data-label="Services"></button>
+  <button class="side-nav-btn" data-target="usecases" data-label="Use Cases"></button>
   <button class="side-nav-btn" data-target="who" data-label="Who This Is For"></button>
   <button class="side-nav-btn" data-target="why-now" data-label="Why Now"></button>
   <button class="side-nav-btn" data-target="why-us" data-label="About Us"></button>
@@ -1485,7 +1527,7 @@
     <div class="hero-pill">Every board is asking</div>
     <h1><span class="hero-line" id="twTarget"></span></h1>
     <p class="hero-subtext">A new operating model for a non-deterministic world. Agentic workflows in operations. AI embedded natively into product. Built to compound, not pilot.</p>
-    <p class="hero-subtext-2">Where your AI strategy meets execution — we build it, you own it.</p>
+    <p class="hero-subtext-2">From AI pilots to real impact.</p>
     <div class="hero-diag" style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
       <a href="#diagnostic" class="btn-diag">Quick Diagnostic &rarr;</a>
       <a href="#contact" class="btn-diag">Get in touch &rarr;</a>
@@ -1535,22 +1577,22 @@
       <div class="problem-col">
         <span class="problem-col-n">01</span>
         <h3 class="problem-col-title">Nobody owns AI transformation</h3>
-        <p class="problem-col-body">When AI sits across product, tech, ops, and leadership with no single mandate, nothing gets decided. Pilots multiply. Budget gets allocated without accountability. The businesses pulling ahead have a clear owner with a clear brief. Most don&rsquo;t.</p>
+        <p class="problem-col-body">When AI sits across product, tech, ops, and leadership with no single mandate, nothing gets decided. Pilots multiply and budget moves without accountability.</p>
       </div>
       <div class="problem-col">
         <span class="problem-col-n">02</span>
         <h3 class="problem-col-title">More pilots, no committed direction</h3>
-        <p class="problem-col-body">The instinct is to run more pilots and build a bigger roadmap. But the constraint is never the technology &mdash; it&rsquo;s the absence of a committed direction. What to build. What to stop. In what order. Without that, pilots produce learning but no leverage.</p>
+        <p class="problem-col-body">The instinct is to run more pilots and build a bigger roadmap. But without committed direction, pilots produce learning without leverage.</p>
       </div>
       <div class="problem-col">
         <span class="problem-col-n">03</span>
         <h3 class="problem-col-title">AI amplifies what&rsquo;s broken. It doesn&rsquo;t fix it.</h3>
-        <p class="problem-col-body">Before you can automate a process, it has to be worth automating. Most aren&rsquo;t &mdash; built on workarounds and tribal knowledge. Layering AI on top doesn&rsquo;t transform broken processes. It scales them.</p>
+        <p class="problem-col-body">Before you automate a process, it has to be worth automating. Layering AI onto workarounds and tribal knowledge does not fix them. It scales them.</p>
       </div>
       <div class="problem-col">
         <span class="problem-col-n">04</span>
         <h3 class="problem-col-title">Backing losers.<br>Starving winners.</h3>
-        <p class="problem-col-body">No cost-per-outcome model. No visibility on what&rsquo;s working. Dead projects consume budget while winning ones get starved. That&rsquo;s not an AI problem. It&rsquo;s a management problem &mdash; and it&rsquo;s the most expensive one.</p>
+        <p class="problem-col-body">No cost-per-outcome model. No visibility on what works. Dead projects consume budget while winning ones get starved.</p>
       </div>
     </div>
   </div>
@@ -1592,8 +1634,8 @@
         <span class="section-label">The Service</span>
         <h2 class="services-heading">Product. Process. People.</h2>
         <p class="services-intro">AI transformation fails when it touches only one of these. The work spans all three &mdash; the product bets worth funding, the processes that have to change before AI can work, and the people and ownership structures that make it stick.</p>
-        <p class="services-intro" style="margin-top:20px;">Most AI programmes stall because they try to run a new technology on old infrastructure and old thinking. We don&rsquo;t layer AI onto broken systems &mdash; we fix what has to change first.</p>
-        <p class="services-intro" style="margin-top:20px;">Every engagement ends with clear owners, a costed roadmap, and a team that can run without us. No ongoing dependency. No bloated frameworks. Work that holds up in the board deck and in the build.</p>
+        <p class="services-intro" style="margin-top:20px;">Most AI initiatives stall because they try to run a new technology on old infrastructure and old thinking. We don&rsquo;t layer AI onto broken systems &mdash; we fix what has to change first.</p>
+        <p class="services-intro" style="margin-top:20px;">Every engagement ends with clear owners, a costed roadmap, and MVPs built to test and iterate quickly. No ongoing dependency. No bloated frameworks. Work that holds up in the board deck and in the build.</p>
       </div>
       <div class="services-right">
         <div class="services-rows">
@@ -1601,45 +1643,120 @@
             <span class="service-n">01</span>
             <div>
               <h3 class="service-name">AI Transformation Strategy</h3>
-              <p class="service-outcome">Where to play, what to fund, what to stop. Two or three costed bets with clear owners and explicit kill criteria &mdash; not a roadmap that hedges everything.</p>
+              <p class="service-outcome">Where to play, what to fund, what to stop. A small number of costed bets with clear owners, expected impact, and kill criteria.</p>
             </div>
           </div>
           <div class="service-row">
             <span class="service-n">02</span>
             <div>
               <h3 class="service-name">Operating Model Redesign</h3>
-              <p class="service-outcome">The workflows that have to change before AI can work. Rebuilt from first principles &mdash; not automation layered on broken infrastructure.</p>
+              <p class="service-outcome">The workflows, roles, and decision loops that have to change before AI can work. Rebuilt from first principles, not automated around broken process.</p>
             </div>
           </div>
           <div class="service-row">
             <span class="service-n">03</span>
             <div>
-              <h3 class="service-name">Agentic Product Build</h3>
-              <p class="service-outcome">From validated bet to working product. The minimum version scoped, built, and instrumented &mdash; so the next stage is funded on evidence, not assumption.</p>
+              <h3 class="service-name">AI MVP &amp; Product Build</h3>
+              <p class="service-outcome">From validated bet to working MVP. Scoped, built, and instrumented quickly so the next stage is funded on evidence, not assumption.</p>
             </div>
           </div>
           <div class="service-row">
             <span class="service-n">04</span>
             <div>
-              <h3 class="service-name">Infrastructure &amp; Stack Audit</h3>
-              <p class="service-outcome">What&rsquo;s blocking your AI before you spend another pound on tooling. CRM, ERP, ATS assessed and mapped. Build, buy, or rent specified per component.</p>
+              <h3 class="service-name">Infrastructure &amp; Stack Readiness</h3>
+              <p class="service-outcome">What is blocking AI before you spend more on tooling. CRM, ERP, ATS, data flows, and integration gaps mapped into build, buy, or rent decisions.</p>
             </div>
           </div>
           <div class="service-row">
             <span class="service-n">05</span>
             <div>
-              <h3 class="service-name">Commercial AI Deployment</h3>
-              <p class="service-outcome">Revenue-generating and cost-removing workflows deployed against specific board-level targets. AI that moves the number &mdash; not AI for its own sake.</p>
+              <h3 class="service-name">Commercial Workflow Deployment</h3>
+              <p class="service-outcome">Revenue-generating and cost-removing workflows deployed against board-level targets. AI that moves margin, speed, conversion, or retention.</p>
             </div>
           </div>
           <div class="service-row">
             <span class="service-n">06</span>
             <div>
               <h3 class="service-name">Governance &amp; Risk Framework</h3>
-              <p class="service-outcome">Policies, accountability structures, and audit trails that satisfy boards, regulators, and acquirers. Built for companies that will be scrutinised at exit.</p>
+              <p class="service-outcome">Policies, ownership, audit trails, and decision rights that satisfy boards, regulators, and acquirers. Built for companies scrutinised at exit.</p>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COST ANCHOR ═══ -->
+<section class="cost-anchor-section">
+  <div class="container">
+    <div class="cost-anchor-label">The Practical Alternative</div>
+    <p class="cost-anchor-body">A full-time Chief AI Officer is hard to justify before the business has shipped anything meaningful. The Nth Layer brings that capability on a fractional basis &mdash; assessing, sequencing, and owning the AI agenda for a fraction of the cost. What you&rsquo;re left with is ownership, not a deck.</p>
+  </div>
+</section>
+
+<!-- ═══ USE CASES BY FUNCTION ═══ -->
+<section class="usecases-section" id="usecases">
+  <div class="container">
+    <span class="section-label">Use Cases by Function</span>
+    <h2 class="usecases-heading">AI changes the work that drives the business.</h2>
+    <p class="usecases-intro">The value is created inside the workflows that move cost, revenue, and control. We redesign those workflows, build the MVPs, and deploy AI where outcomes can be measured.</p>
+    <div class="usecases-grid">
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 21h12M9 6c0-1.5 1.5-3 3-3s3 1.5 3 3c0 1.5-1.5 3-3 3s-3 1.5-3 3"/></svg>
+        </div>
+        <h3 class="usecase-title">Finance<br/>Operations</h3>
+        <p class="usecase-desc">Cut manual effort across invoicing, reporting, close, and approvals. Replace fragile handoffs with controlled workflows that scale.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <h3 class="usecase-title">Sales Operations /<br/>RevOps</h3>
+        <p class="usecase-desc">Improve pipeline quality, forecasting, and follow-up. Remove CRM friction and put AI where it increases revenue velocity.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <h3 class="usecase-title">Customer Support /<br/>Customer Operations</h3>
+        <p class="usecase-desc">Handle more volume with less effort. Automate triage and resolution while improving quality, consistency, and response times.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="usecase-title">Customer Success<br/>Operations</h3>
+        <p class="usecase-desc">Protect and grow existing revenue. Apply AI to onboarding, health, renewals, and expansion so teams act earlier.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="usecase-title">HR<br/>Operations</h3>
+        <p class="usecase-desc">Standardise people workflows across onboarding, support, and performance. Reduce coordination load and improve employee service.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="10" y="4" width="4" height="16"/><rect x="4" y="10" width="4" height="16"/><rect x="16" y="10" width="4" height="16"/></svg>
+        </div>
+        <h3 class="usecase-title">Talent Acquisition<br/>Operations</h3>
+        <p class="usecase-desc">Hire faster with less effort. Automate screening, coordination, and communication while improving decision quality.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="usecase-title">Legal & Compliance<br/>Operations</h3>
+        <p class="usecase-desc">Reduce friction in high-risk workflows. Support contracts, policy, and audits while preserving governance and traceability.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/><path d="M18 8h.01"/></svg>
+        </div>
+        <h3 class="usecase-title">IT & Internal Service<br/>Operations</h3>
+        <p class="usecase-desc">Improve internal service speed and consistency. Automate support, access, and requests to reduce load and standardise delivery.</p>
       </div>
     </div>
   </div>
@@ -1726,6 +1843,14 @@
 </section>
 
 
+
+<!-- BOTTOM CTA -->
+<section style="background:#0d0d0d; padding:64px 20px; text-align:center; border-top:1px solid #1a1a1a;">
+  <div style="display:flex; gap:28px; justify-content:center; align-items:center; flex-wrap:wrap;">
+    <a href="#diagnostic" class="btn-diag">Quick Diagnostic &rarr;</a>
+    <a href="#contact" class="btn-diag">Get in Touch &rarr;</a>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -2346,10 +2471,21 @@
   async function submitDiagEmailCapture() {
     var emailInput = document.getElementById('diagEmailResultInput');
     var msgEl = document.getElementById('diagEmailResultMsg');
+    var sendBtn = msgEl.previousElementSibling;
     var email = emailInput.value.trim();
+    if (!window.__diagScores || !window.__diagVerdict) {
+      msgEl.style.display = 'block';
+      msgEl.textContent = 'Run the diagnostic first.';
+      msgEl.style.color = '#e05252';
+      return;
+    }
     if (!email || email.indexOf('@') === -1) {
       emailInput.style.borderColor = 'rgba(255,80,80,0.6)';
       return;
+    }
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Sending...';
     }
     try {
       var res = await fetch('/api/diagnostic/email', {
@@ -2366,16 +2502,23 @@
       if (res.ok) {
         msgEl.textContent = 'Results sent. Check your inbox.';
         msgEl.style.color = 'var(--orange)';
-        var sendBtn = msgEl.previousElementSibling;
         if (sendBtn) sendBtn.style.display = 'none';
       } else {
         msgEl.textContent = 'Something went wrong. Try again.';
         msgEl.style.color = '#e05252';
+        if (sendBtn) {
+          sendBtn.disabled = false;
+          sendBtn.textContent = 'Send me the results →';
+        }
       }
     } catch (e) {
       msgEl.style.display = 'block';
       msgEl.textContent = 'Something went wrong. Try again.';
       msgEl.style.color = '#e05252';
+      if (sendBtn) {
+        sendBtn.disabled = false;
+        sendBtn.textContent = 'Send me the results →';
+      }
     }
   }
 

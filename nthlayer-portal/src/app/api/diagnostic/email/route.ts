@@ -95,14 +95,30 @@ export async function POST(req: NextRequest) {
     if (!email || !email.includes('@')) {
       return NextResponse.json({ error: 'Invalid email' }, { status: 400 });
     }
+    if (!scores || !verdict) {
+      return NextResponse.json({ error: 'Missing diagnostic data' }, { status: 400 });
+    }
 
-    // Upsert: update existing record with email, or create new
     let diagnosticId = existingId;
     if (existingId) {
-      await prisma.diagnostic.update({
-        where: { id: existingId },
-        data: { email },
-      });
+      try {
+        await prisma.diagnostic.update({
+          where: { id: existingId },
+          data: { email },
+        });
+      } catch {
+        const diagnostic = await prisma.diagnostic.create({
+          data: {
+            productScore: scores.product,
+            peopleScore: scores.people,
+            processScore: scores.process,
+            answers: scores.answers as object[],
+            verdict: verdict as object,
+            email,
+          },
+        });
+        diagnosticId = diagnostic.id;
+      }
     } else {
       const diagnostic = await prisma.diagnostic.create({
         data: {
