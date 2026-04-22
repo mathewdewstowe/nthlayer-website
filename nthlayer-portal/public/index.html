@@ -1361,8 +1361,8 @@
   @media (max-width: 540px) {
     .framework-stages { grid-template-columns: 1fr; }
     .hero-left h1 { min-height: 1.4em; overflow: hidden; margin-bottom: 8px; } .hero-left h1 .hero-line { font-size: clamp(18px, 5vw, 28px); white-space: nowrap; overflow: hidden; } .hero-subtext, .hero-subtext-2 { font-size: 14px !important; line-height: 1.55 !important; margin-top: 8px !important; margin-bottom: 8px !important; } .hero-diag { margin-top: 20px; width: 100%; } .btn-diag { font-size: 11px; padding: 10px 16px; width: 100%; justify-content: center; }
-    .hero-left { padding: 72px 16px 40px; }
-    .container { padding: 0 16px; }
+    .hero-left { padding: 72px 12px 40px; }
+    .container { padding: 0 12px; }
     .hero-pill { font-size: 11px; padding: 8px 16px; }
     .problem-cols { grid-template-columns: 1fr; }
     .who-cards-grid { grid-template-columns: 1fr; }
@@ -1579,7 +1579,7 @@
 <section class="problem-v2" id="problem">
   <div class="container">
     <span class="section-label">The Problem</span>
-    <h2 class="problem-v2-heading">It&rsquo;s not a technology problem.<br>It&rsquo;s a decision problem.</h2>
+    <h2 class="problem-v2-heading">It&rsquo;s not a technology problem.<span style="display:block;margin-top:12px;">It&rsquo;s a decision problem.</span></h2>
   </div>
 </section>
 <section class="problem-cards">
@@ -2002,9 +2002,9 @@
 
 <!-- ═══ DIAGNOSTIC INTRO MODAL ═══ -->
 <div id="diagIntroModal" style="display:none; position:fixed; inset:0; z-index:900; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); overflow-y:auto; padding:40px 20px;">
-  <div style="background:#f5f4f1; border-radius:12px; max-width:480px; margin:80px auto 40px; padding:44px 40px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">
-    <button onclick="closeDiagIntro()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#999;font-size:20px;cursor:pointer;line-height:1;">✕</button>
-    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#111;border:1px solid #ccc;display:inline-block;padding:5px 13px;border-radius:100px;margin-bottom:28px;">Quick Diagnostic</div>
+  <div style="background:#fff; border:1px solid #e6e6e6; border-radius:12px; max-width:480px; margin:80px auto 40px; padding:44px 40px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; box-shadow:0 24px 70px rgba(0,0,0,0.24);">
+    <button onclick="closeDiagIntro()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#777;font-size:20px;cursor:pointer;line-height:1;">✕</button>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#111;border:1px solid #d8d8d8;display:inline-block;padding:5px 13px;border-radius:100px;margin-bottom:28px;">Quick Diagnostic</div>
     <h2 style="font-size:clamp(22px,2.5vw,30px);font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#111;margin-bottom:16px;">Find out where you stand in 2 minutes</h2>
     <p style="font-size:15px;color:#666;line-height:1.75;margin-bottom:32px;">Answer six questions about your product, stack, and team. We return a board-ready view of your exposure, your options, and what to do next.</p>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
@@ -2024,8 +2024,8 @@
 
 <!-- ═══ DIAGNOSTIC MODAL ═══ -->
 <div id="diagModal" style="display:none; position:fixed; inset:0; z-index:900; background:rgba(0,0,0,0.82); backdrop-filter:blur(6px); overflow-y:auto; padding:40px 20px;">
-  <div id="diagBox" style="background:#111; border:1px solid rgba(57,255,122,0.25); box-shadow:0 0 60px rgba(57,255,122,0.1); max-width:620px; margin:0 auto; padding:48px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">
-    <button onclick="closeDiag()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#bbb;font-size:22px;cursor:pointer;line-height:1;">✕</button>
+  <div id="diagBox" style="background:#fff; border:1px solid #e6e6e6; box-shadow:0 24px 70px rgba(0,0,0,0.24); max-width:620px; margin:0 auto; padding:48px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; color:#111;">
+    <button onclick="closeDiag()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#777;font-size:22px;cursor:pointer;line-height:1;">✕</button>
 
     <div style="margin-bottom:32px;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
@@ -2037,59 +2037,59 @@
       </div>
     </div>
 
-    <div id="diagQuestion" style="font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:1.3;margin-bottom:32px;"></div>
+    <div id="diagQuestion" style="font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-0.02em;color:#111;line-height:1.3;margin-bottom:32px;"></div>
     <div id="diagAnswers" style="display:flex;flex-direction:column;gap:12px;"></div>
 
     <!-- Loading state -->
     <div id="diagLoading" style="display:none;flex-direction:column;align-items:center;justify-content:center;padding:56px 0;gap:20px;">
       <div style="width:28px;height:28px;border:2px solid #222;border-top-color:rgba(57,255,122,0.8);border-radius:50%;animation:diagSpin 0.8s linear infinite;"></div>
-      <div style="font-size:13px;color:#bbb;letter-spacing:0.04em;">Reading your answers…</div>
+      <div style="font-size:13px;color:#666;letter-spacing:0.04em;">Reading your answers…</div>
     </div>
 
     <!-- Result panel -->
     <div id="diagResult" style="display:none;">
-      <div id="diagHeadline" style="font-size:clamp(18px,2.2vw,26px);font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:1.35;margin-bottom:32px;"></div>
+      <div id="diagHeadline" style="font-size:clamp(18px,2.2vw,26px);font-weight:700;letter-spacing:-0.02em;color:#111;line-height:1.35;margin-bottom:32px;"></div>
       <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:28px;">
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
             <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);">PRODUCT</span>
             <span id="diagProductScore" style="font-size:11px;font-weight:700;color:var(--orange);"></span>
           </div>
-          <div style="height:2px;background:#1e1e1e;border-radius:2px;overflow:hidden;margin-bottom:7px;">
+          <div style="height:2px;background:#e5e7eb;border-radius:2px;overflow:hidden;margin-bottom:7px;">
             <div id="diagProductBar" style="height:2px;background:var(--orange);border-radius:2px;width:0%;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.1s;box-shadow:0 0 6px rgba(57,255,122,0.5);"></div>
           </div>
-          <div id="diagProductLine" style="font-size:13px;color:#ccc;line-height:1.5;"></div>
+          <div id="diagProductLine" style="font-size:13px;color:#555;line-height:1.5;"></div>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
             <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);">PEOPLE</span>
             <span id="diagPeopleScore" style="font-size:11px;font-weight:700;color:var(--orange);"></span>
           </div>
-          <div style="height:2px;background:#1e1e1e;border-radius:2px;overflow:hidden;margin-bottom:7px;">
+          <div style="height:2px;background:#e5e7eb;border-radius:2px;overflow:hidden;margin-bottom:7px;">
             <div id="diagPeopleBar" style="height:2px;background:var(--orange);border-radius:2px;width:0%;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.3s;box-shadow:0 0 6px rgba(57,255,122,0.5);"></div>
           </div>
-          <div id="diagPeopleLine" style="font-size:13px;color:#ccc;line-height:1.5;"></div>
+          <div id="diagPeopleLine" style="font-size:13px;color:#555;line-height:1.5;"></div>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;">
             <span style="font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);">PROCESS</span>
             <span id="diagProcessScore" style="font-size:11px;font-weight:700;color:var(--orange);"></span>
           </div>
-          <div style="height:2px;background:#1e1e1e;border-radius:2px;overflow:hidden;margin-bottom:7px;">
+          <div style="height:2px;background:#e5e7eb;border-radius:2px;overflow:hidden;margin-bottom:7px;">
             <div id="diagProcessBar" style="height:2px;background:var(--orange);border-radius:2px;width:0%;transition:width 0.85s cubic-bezier(0.22,1,0.36,1) 0.5s;box-shadow:0 0 6px rgba(57,255,122,0.5);"></div>
           </div>
-          <div id="diagProcessLine" style="font-size:13px;color:#ccc;line-height:1.5;"></div>
+          <div id="diagProcessLine" style="font-size:13px;color:#555;line-height:1.5;"></div>
         </div>
       </div>
-      <div style="border-top:1px solid #222;padding-top:22px;margin-bottom:24px;">
-        <div id="diagCtaHook" style="font-size:13px;font-style:italic;color:#aaa;line-height:1.65;"></div>
+      <div style="border-top:1px solid #e5e7eb;padding-top:22px;margin-bottom:24px;">
+        <div id="diagCtaHook" style="font-size:13px;font-style:italic;color:#666;line-height:1.65;"></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;">
-<button id="diagEmailCaptureBtn" onclick="showDiagEmailCapture()" style="background:none;border:1px solid #2a2a2a;color:#bbb;padding:12px 28px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:border-color 0.15s,color 0.15s;" onmouseover="this.style.borderColor='#444';this.style.color='#aaa'" onmouseout="this.style.borderColor='#2a2a2a';this.style.color='#666'">Email me the result</button>
+<button id="diagEmailCaptureBtn" onclick="showDiagEmailCapture()" style="background:none;border:1px solid #d0d0d0;color:#111;padding:12px 28px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:border-color 0.15s,color 0.15s;" onmouseover="this.style.borderColor='#999';this.style.color='#000'" onmouseout="this.style.borderColor='#d0d0d0';this.style.color='#111'">Email me the result</button>
         <div id="diagEmailCaptureForm" style="display:none;flex-direction:column;gap:10px;">
-          <input id="diagEmailResultInput" type="email" placeholder="your@email.com" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'">
+          <input id="diagEmailResultInput" type="email" placeholder="your@email.com" style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:14px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'">
           <button onclick="submitDiagEmailCapture()" style="background:none;border:1px solid rgba(57,255,122,0.4);color:var(--orange);padding:12px 20px;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;">Send me the results →</button>
-          <div id="diagEmailResultMsg" style="display:none;font-size:12px;color:#ccc;text-align:center;padding-top:4px;"></div>
+          <div id="diagEmailResultMsg" style="display:none;font-size:12px;color:#666;text-align:center;padding-top:4px;"></div>
         </div>
       </div>
     </div>
@@ -2550,22 +2550,22 @@
 
 <!-- ═══ GET IN TOUCH MODAL ═══ -->
 <div id="contactModal" style="display:none; position:fixed; inset:0; z-index:900; background:rgba(0,0,0,0.82); backdrop-filter:blur(6px); overflow-y:auto; padding:40px 20px;">
-  <div style="background:#111; border:1px solid rgba(57,255,122,0.25); box-shadow:0 0 60px rgba(57,255,122,0.1); max-width:560px; margin:0 auto; padding:48px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;">
-    <button onclick="closeContactModal()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#bbb;font-size:22px;cursor:pointer;line-height:1;">✕</button>
+  <div style="background:#fff; border:1px solid #e6e6e6; box-shadow:0 24px 70px rgba(0,0,0,0.24); max-width:560px; margin:0 auto; padding:48px; position:relative; font-family:-apple-system,'Helvetica Neue',Arial,sans-serif; color:#111;">
+    <button onclick="closeContactModal()" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#777;font-size:22px;cursor:pointer;line-height:1;">✕</button>
     <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:12px;">Get in touch</div>
-    <div style="font-size:clamp(22px,2.5vw,30px);font-weight:700;letter-spacing:-0.02em;color:#fff;margin-bottom:8px;line-height:1.2;">Let's talk</div>
-    <div style="font-size:14px;color:#aaa;margin-bottom:32px;line-height:1.6;">Every engagement starts with a 30-minute call. No deck. Just the right questions.</div>
+    <div style="font-size:clamp(22px,2.5vw,30px);font-weight:700;letter-spacing:-0.02em;color:#111;margin-bottom:8px;line-height:1.2;">Let's talk</div>
+    <div style="font-size:14px;color:#555;margin-bottom:32px;line-height:1.6;">Every engagement starts with a 30-minute call. No deck. Just the right questions.</div>
     <form id="contactModalForm" style="display:flex;flex-direction:column;gap:12px;">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <input type="text" name="name" placeholder="Name *" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'">
-        <input type="text" name="company" placeholder="Company *" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'">
+        <input type="text" name="name" placeholder="Name *" required style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'">
+        <input type="text" name="company" placeholder="Company *" required style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'">
       </div>
-      <input type="text" name="jobtitle" placeholder="Job title *" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'">
-      <input type="email" name="email" placeholder="Email *" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'">
-      <textarea name="message" placeholder="Message *" rows="4" required style="background:#1a1a1a;border:1px solid #2a2a2a;color:#fff;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;resize:vertical;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#2a2a2a'"></textarea>
+      <input type="text" name="jobtitle" placeholder="Job title *" required style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'">
+      <input type="email" name="email" placeholder="Email *" required style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'">
+      <textarea name="message" placeholder="Message *" rows="4" required style="background:#fff;border:1px solid #d8d8d8;color:#111;padding:13px 16px;font-size:13px;font-family:inherit;outline:none;resize:vertical;transition:border-color 0.15s;" onfocus="this.style.borderColor='rgba(57,255,122,0.5)'" onblur="this.style.borderColor='#d8d8d8'"></textarea>
       <button type="submit" style="background:var(--orange);border:none;color:#0a1a0d;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:inherit;box-shadow:0 0 16px rgba(57,255,122,0.4);align-self:flex-start;transition:box-shadow 0.2s;">Send message →</button>
     </form>
-    <div id="contactModalSuccess" style="display:none;font-size:15px;color:#aaa;padding:24px 0;line-height:1.7;">Thank you — I'll be in touch shortly.</div>
+    <div id="contactModalSuccess" style="display:none;font-size:15px;color:#555;padding:24px 0;line-height:1.7;">Thank you — I'll be in touch shortly.</div>
   </div>
 </div>
 
