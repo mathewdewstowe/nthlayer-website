@@ -14,9 +14,11 @@ function scoreBar(score: number): string {
 function diagnosticEmailHtml(
   scores: DiagnosticScores,
   verdict: Record<string, string>,
-  diagnosticId: string,
+  diagnosticId?: string,
 ) {
-  const registrationUrl = `${BASE_URL}/register?diagnostic_id=${diagnosticId}`;
+  const registrationUrl = diagnosticId
+    ? `${BASE_URL}/register?diagnostic_id=${diagnosticId}`
+    : `${BASE_URL}/register`;
 
   return `<!DOCTYPE html>
 <html>
@@ -106,7 +108,12 @@ export async function POST(req: NextRequest) {
           where: { id: existingId },
           data: { email },
         });
-      } catch {
+      } catch (dbErr) {
+        console.warn('[diagnostic/email] Skipping diagnostic update', dbErr);
+        diagnosticId = undefined;
+      }
+    } else {
+      try {
         const diagnostic = await prisma.diagnostic.create({
           data: {
             productScore: scores.product,
@@ -118,24 +125,15 @@ export async function POST(req: NextRequest) {
           },
         });
         diagnosticId = diagnostic.id;
+      } catch (dbErr) {
+        console.warn('[diagnostic/email] Skipping diagnostic save', dbErr);
+        diagnosticId = undefined;
       }
-    } else {
-      const diagnostic = await prisma.diagnostic.create({
-        data: {
-          productScore: scores.product,
-          peopleScore: scores.people,
-          processScore: scores.process,
-          answers: scores.answers as object[],
-          verdict: verdict as object,
-          email,
-        },
-      });
-      diagnosticId = diagnostic.id;
     }
 
     const registrationUrl = `${BASE_URL}/register?diagnostic_id=${diagnosticId}`;
 
-    const html = diagnosticEmailHtml(scores, verdict, diagnosticId!);
+    const html = diagnosticEmailHtml(scores, verdict, diagnosticId);
     const text = `Your AI readiness diagnostic\n\n${verdict.headline}\n\nPRODUCT: ${scores.product}/10\n${verdict.product_line}\n\nPEOPLE: ${scores.people}/10\n${verdict.people_line}\n\nPROCESS: ${scores.process}/10\n${verdict.process_line}\n\n${verdict.cta_hook}\n\nStart the full assessment: ${registrationUrl}`;
 
     await sendEmail({
