@@ -1206,6 +1206,17 @@
   @media (max-width: 860px) { .hero-bg-neural, .hero-fade { display: none; } }
   @media (max-width: 700px) { .outcomes-cols { grid-template-columns: 1fr; gap: 28px; } .outcome-col { padding: 0; border-right: none; } }
 
+  @media (min-width: 1500px) {
+    .container { max-width: 1440px; padding: 0 56px; }
+    .hero-left { max-width: 1040px; padding: 144px 72px 96px 88px; }
+    .hero-left h1 { max-width: 980px; }
+    .hero-left h1 .hero-line { font-size: clamp(56px, 4.6vw, 96px); }
+    .hero-pill { font-size: 18px; padding: 12px 24px; margin-bottom: 36px; }
+    .hero-subtext,
+    .hero-subtext-2 { font-size: 22px; max-width: 860px; }
+    .btn-diag { font-size: 13px; padding: 14px 22px; }
+  }
+
   /* ════ TENSION ════ */
   .tension-section { background: var(--white); padding: 28px 0; }
   .tension-quote { font-size: clamp(14px,1.4vw,20px); font-weight: 700; letter-spacing: -0.02em; color: #111; line-height: 1.35; max-width: 100%; margin-bottom: 20px; text-indent: -0.45em; padding-left: 0.45em; white-space: nowrap; }
